@@ -113,7 +113,7 @@ export default function Header() {
               <Link
                 href="/"
                 className={cn(
-                  'group relative px-3.5 py-2 text-[13px] font-bold transition-colors',
+                  'group relative px-3.5 py-2 text-[13px] font-bold uppercase tracking-wide transition-colors',
                   isActive('/') ? 'text-primary' : 'text-foreground/65 hover:text-primary'
                 )}
               >
@@ -136,7 +136,7 @@ export default function Header() {
                 <button
                   onClick={() => setDropdownOpen((v) => !v)}
                   className={cn(
-                    'group relative inline-flex items-center gap-1 px-3.5 py-2 text-[13px] font-bold outline-none transition-colors',
+                    'group relative inline-flex items-center gap-1 px-3.5 py-2 text-[13px] font-bold uppercase tracking-wide outline-none transition-colors',
                     dropdownOpen || pathname.startsWith('/plots-in-') ? 'text-primary' : 'text-foreground/65 hover:text-primary'
                   )}
                 >
@@ -178,7 +178,7 @@ export default function Header() {
                           'flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-[13px] transition',
                           pathname === c.href
                             ? 'bg-primary/5 font-semibold text-primary'
-                            : 'text-foreground/80 hover:bg-muted/60 hover:text-primary'
+                            : 'text-foreground/80 hover:bg-primary/10 hover:text-primary'
                         )}
                       >
                         <MapPin className="size-3.5 text-secondary/80" />
@@ -194,7 +194,7 @@ export default function Header() {
                   key={l.href}
                   href={l.href}
                   className={cn(
-                    'group relative px-3.5 py-2 text-[13px] font-bold transition-colors',
+                    'group relative px-3.5 py-2 text-[13px] font-bold uppercase tracking-wide transition-colors',
                     isActive(l.href) ? 'text-primary' : 'text-foreground/65 hover:text-primary'
                   )}
                 >
