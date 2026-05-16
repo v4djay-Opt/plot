@@ -1,0 +1,58 @@
+#!/bin/bash
+# Git post-receive hook for auto-deployment on VPS
+# Place this file at: /var/repo/plotsgurgaon.git/hooks/post-receive
+# Make executable: chmod +x /var/repo/plotsgurgaon.git/hooks/post-receive
+
+set -e
+
+# Config
+DEPLOY_DIR="/var/www/plotsgurgaon"
+REPO_NAME="plotsgurgaon"
+PM2_APP_NAME="plotsgurgaon"
+BRANCH="main"
+
+echo "=========================================="
+echo "  Deploy started: $(date)"
+echo "=========================================="
+
+# 1. Check out the latest code
+echo "[1/6] Checking out latest code..."
+git --work-tree="$DEPLOY_DIR" --git-dir="$DEPLOY_DIR/.git" checkout -f "$BRANCH"
+
+cd "$DEPLOY_DIR"
+
+# 2. Create log directory if needed
+mkdir -p /var/log/pm2/plotsgurgaon
+
+# 3. Install dependencies (clean install for production)
+echo "[2/6] Installing dependencies (npm ci)..."
+npm ci --production=false --prefer-offline --no-audit
+
+# 4. Run build
+echo "[3/6] Building Next.js..."
+npm run build
+
+# 5. Check if PM2 app exists, start or reload
+echo "[4/6] Managing PM2 process..."
+if pm2 describe "$PM2_APP_NAME" > /dev/null 2>&1; then
+    echo "    Reloading existing PM2 app..."
+    pm2 reload ecosystem.config.js --env production --update-env
+else
+    echo "    Starting new PM2 app..."
+    pm2 start ecosystem.config.js --env production
+fi
+
+# 6. Save PM2 process list so it auto-starts on boot
+echo "[5/6] Saving PM2 process list..."
+pm2 save
+
+# 7. Clean up old builds to save disk space
+echo "[6/6] Cleaning up..."
+npm prune --production
+
+# Optional: Warm up cache by curling the homepage
+# curl -s -o /dev/null -w "%{http_code}" http://localhost:3000 || true
+
+echo "=========================================="
+echo "  Deploy completed: $(date)"
+echo "=========================================="
