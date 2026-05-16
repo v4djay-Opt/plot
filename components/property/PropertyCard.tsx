@@ -1,5 +1,7 @@
-import { MapPin, Ruler, MessageCircle, Home } from 'lucide-react';
-import Link from 'next/link';
+"use client";
+
+import { MapPin, Ruler, MessageCircle, Home } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export interface Plot {
   id: string;
@@ -37,9 +39,14 @@ function PlotImage() {
 }
 
 export default function PropertyCard({ plot }: { plot: Plot }) {
+  const router = useRouter();
   const sold = plot.status === 'Sold Out';
+  const detailHref = `/plots/${plot.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10">
+    <article
+      onClick={() => router.push(detailHref)}
+      className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10"
+    >
       <div className="relative">
         <PlotImage />
         <span
@@ -77,16 +84,14 @@ export default function PropertyCard({ plot }: { plot: Plot }) {
         </div>
         <p className="mt-3 line-clamp-1 text-xs text-muted-foreground">{plot.rera}</p>
         <div className="mt-auto flex gap-3 pt-5">
-          <Link
-            href={`/plots/${plot.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`}
-            className="flex flex-1 items-center justify-center rounded-full border border-primary/80 bg-[#f6f5f0] px-4 py-2.5 text-sm font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground"
-          >
+          <span className="flex flex-1 items-center justify-center rounded-full border border-primary/80 bg-[#f6f5f0] px-4 py-2.5 text-sm font-semibold text-primary">
             View Details
-          </Link>
+          </span>
           <a
             href={`https://wa.me/919311122787?text=${encodeURIComponent(`Hi Rohit, I'm interested in: ${plot.title}`)}`}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
             className="flex flex-1 items-center justify-center gap-2 rounded-full bg-secondary px-4 py-2.5 text-sm font-semibold text-secondary-foreground transition hover:bg-secondary/90"
           >
             <MessageCircle className="size-4" />

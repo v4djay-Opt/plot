@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 
 const mainLinks = [
   { label: 'Home', href: '/' },
+  { label: 'Locations', href: '/locations' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
 ];

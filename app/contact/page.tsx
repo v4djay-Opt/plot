@@ -1,6 +1,25 @@
-
+import type { Metadata } from 'next';
 import LeadCapture from '@/components/site/LeadCapture';
 import { Phone, Mail, Clock } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Contact',
+  description:
+    'Get in touch with Rohit Singh for verified residential plots in Gurgaon, Jajjar & beyond. Free site visits. Call 09311122787 — plotsgurgaon.in',
+  alternates: {
+    canonical: 'https://plotsgurgaon.in/contact',
+  },
+  openGraph: {
+    images: [
+      {
+        url: '/images/hero-bg.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Contact PlotsGurgaon for free site visit',
+      },
+    ],
+  },
+};
 
 export default function ContactPage() {
   return (
@@ -8,8 +27,7 @@ export default function ContactPage() {
       <section className="relative overflow-hidden border-b border-border">
         <img
           src="/images/hero-bg.jpg"
-          alt=""
-          aria-hidden
+          alt="Contact PlotsGurgaon for verified residential plots"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div

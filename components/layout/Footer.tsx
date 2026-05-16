@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, MessageCircle, ShieldCheck, ArrowRight } from 'luc
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'All Plots', href: '/plots' },
+  { label: 'Locations', href: '/locations' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
 ];

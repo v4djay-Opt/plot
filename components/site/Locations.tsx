@@ -12,7 +12,7 @@ const locations = [
 
 export default function Locations() {
   return (
-    <section id="locations" className="bg-muted/40 py-20 md:py-28">
+    <section id="locations" className="bg-[#f8f7f4] py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="mb-12 text-center">
           <span className="text-xs font-semibold uppercase tracking-widest text-secondary">Explore Areas</span>

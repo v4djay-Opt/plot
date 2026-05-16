@@ -6,6 +6,16 @@ import { BLOG_POSTS } from '@/components/site/blogData';
 export const metadata = {
   title: 'Blog — Plot Buying Tips, Market Insights & RERA Guides',
   description: 'Practical guides on buying residential plots in Gurgaon, Sohna and Jajjar — RERA checks, finance, and market trends.',
+  openGraph: {
+    images: [
+      {
+        url: '/images/hero-plot.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Plot buying tips and market insights blog',
+      },
+    ],
+  },
 };
 
 export default function BlogPage() {
@@ -16,8 +26,7 @@ export default function BlogPage() {
       <section className="relative overflow-hidden border-b border-border">
         <img
           src="/images/hero-bg.jpg"
-          alt=""
-          aria-hidden
+          alt="Residential plots blog - buying tips and market insights"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-black/45" aria-hidden />
