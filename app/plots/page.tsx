@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import PlotsClient from './PlotsClient';
 
 export const metadata: Metadata = {
@@ -25,5 +26,9 @@ export const metadata: Metadata = {
 };
 
 export default function PlotsPage() {
-  return <PlotsClient />;
+  return (
+    <Suspense fallback={null}>
+      <PlotsClient />
+    </Suspense>
+  );
 }

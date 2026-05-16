@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import PropertyCard from '@/components/property/PropertyCard';
 import LeadCapture from '@/components/site/LeadCapture';
 import { SlidersHorizontal, Search, X } from 'lucide-react';
@@ -35,13 +36,33 @@ function FilterSection({ title, children }: { title: string; children: React.Rea
 
 type SortKey = 'latest' | 'price-asc' | 'price-desc' | 'area';
 
+const LOCATION_MAP: Record<string, string[]> = {
+  gurgaon: ['Sector 102, Gurgaon', 'Sector 65', 'Dwarka Expressway', 'Gurgaon'],
+  sohna: ['Sohna'],
+  jajjar: ['Jajjar'],
+};
+
 export default function PlotsClient() {
+  const searchParams = useSearchParams();
+
+  const urlLoc = searchParams.get('location') ?? '';
+  const urlMinArea = searchParams.get('minArea') ? Number(searchParams.get('minArea')) : 0;
+  const urlMaxArea = searchParams.get('maxArea') ? Number(searchParams.get('maxArea')) : Infinity;
+  const urlMinPrice = searchParams.get('minPrice') ? Number(searchParams.get('minPrice')) : 0;
+  const urlMaxPrice = searchParams.get('maxPrice') ? Number(searchParams.get('maxPrice')) : Infinity;
+
+  const initialLocations = urlLoc && LOCATION_MAP[urlLoc] ? LOCATION_MAP[urlLoc] : [];
+
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
+  const [selectedLocations, setSelectedLocations] = useState<string[]>(initialLocations);
   const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [sort, setSort] = useState<SortKey>('latest');
   const [query, setQuery] = useState('');
+  const [minArea, setMinArea] = useState(urlMinArea);
+  const [maxArea, setMaxArea] = useState(urlMaxArea);
+  const [minPrice, setMinPrice] = useState(urlMinPrice);
+  const [maxPrice, setMaxPrice] = useState(urlMaxPrice);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -49,6 +70,8 @@ export default function PlotsClient() {
       if (selectedLocations.length && !selectedLocations.includes(p.location)) return false;
       if (selectedStatuses.length && !selectedStatuses.includes(p.status)) return false;
       if (selectedTags.length && (!p.tag || !selectedTags.includes(p.tag))) return false;
+      if (p.area < minArea || p.area > maxArea) return false;
+      if (p.price < minPrice || p.price > maxPrice) return false;
       if (q) {
         const text = `${p.title} ${p.location} ${p.rera} ${p.tag ?? ''} ${p.status}`.toLowerCase();
         if (!text.includes(q)) return false;
@@ -72,9 +95,13 @@ export default function PlotsClient() {
     setSelectedTags([]);
     setSort('latest');
     setQuery('');
+    setMinArea(0);
+    setMaxArea(Infinity);
+    setMinPrice(0);
+    setMaxPrice(Infinity);
   }
 
-  const hasFilters = selectedLocations.length > 0 || selectedStatuses.length > 0 || selectedTags.length > 0 || query.trim().length > 0;
+  const hasFilters = selectedLocations.length > 0 || selectedStatuses.length > 0 || selectedTags.length > 0 || query.trim().length > 0 || minArea > 0 || maxArea < Infinity || minPrice > 0 || maxPrice < Infinity;
 
   const FilterContent = (
     <div className="space-y-6">
