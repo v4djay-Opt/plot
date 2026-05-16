@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react';
 import PropertyCard from '@/components/property/PropertyCard';
 import LeadCapture from '@/components/site/LeadCapture';
-import { SlidersHorizontal } from 'lucide-react';
+import { SlidersHorizontal, Search, X } from 'lucide-react';
 
 const allPlots = [
   { id: '1', title: '200 Sq Yd Residential Plot in Sector 102, Gurgaon', price: 4500000, priceLabel: '₹45,00,000', area: 200, areaLabel: '200 Sq Yd', location: 'Sector 102, Gurgaon', rera: 'RERA: HR/420/152/2023', status: 'Available' as const, tag: 'Corner Plot' },
@@ -41,12 +41,18 @@ export default function PlotsClient() {
   const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [sort, setSort] = useState<SortKey>('latest');
+  const [query, setQuery] = useState('');
 
   const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
     const list = allPlots.filter((p) => {
       if (selectedLocations.length && !selectedLocations.includes(p.location)) return false;
       if (selectedStatuses.length && !selectedStatuses.includes(p.status)) return false;
       if (selectedTags.length && (!p.tag || !selectedTags.includes(p.tag))) return false;
+      if (q) {
+        const text = `${p.title} ${p.location} ${p.rera} ${p.tag ?? ''} ${p.status}`.toLowerCase();
+        if (!text.includes(q)) return false;
+      }
       return true;
     });
     const sorted = [...list];
@@ -54,7 +60,7 @@ export default function PlotsClient() {
     else if (sort === 'price-desc') sorted.sort((a, b) => b.price - a.price);
     else if (sort === 'area') sorted.sort((a, b) => b.area - a.area);
     return sorted;
-  }, [selectedLocations, selectedStatuses, selectedTags, sort]);
+  }, [selectedLocations, selectedStatuses, selectedTags, sort, query]);
 
   function toggleItem<T>(arr: T[], item: T, set: (v: T[]) => void) {
     set(arr.includes(item) ? arr.filter((i) => i !== item) : [...arr, item]);
@@ -65,9 +71,10 @@ export default function PlotsClient() {
     setSelectedStatuses([]);
     setSelectedTags([]);
     setSort('latest');
+    setQuery('');
   }
 
-  const hasFilters = selectedLocations.length > 0 || selectedStatuses.length > 0 || selectedTags.length > 0;
+  const hasFilters = selectedLocations.length > 0 || selectedStatuses.length > 0 || selectedTags.length > 0 || query.trim().length > 0;
 
   const FilterContent = (
     <div className="space-y-6">
@@ -168,17 +175,32 @@ export default function PlotsClient() {
           <div className="min-w-0 flex-1">
             {/* Toolbar */}
             <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-              <div className="flex items-center gap-3">
+              <div className="flex flex-1 items-center gap-3">
                 <button
                   onClick={() => setMobileFiltersOpen(true)}
-                  className="inline-flex h-10 items-center gap-2 rounded-md border border-border px-3 text-sm font-medium text-foreground transition hover:bg-muted lg:hidden"
+                  className="inline-flex h-10 shrink-0 items-center gap-2 rounded-md border border-border px-3 text-sm font-medium text-foreground transition hover:bg-muted lg:hidden"
                 >
                   <SlidersHorizontal className="size-4" />
                   Filters
                 </button>
-                <p className="text-sm text-muted-foreground">
-                  Showing <span className="font-semibold text-foreground">{filtered.length}</span> plot{filtered.length === 1 ? '' : 's'}
-                </p>
+                <div className="relative flex-1 max-w-sm">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+                  <input
+                    type="text"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    placeholder="Search plots, location, RERA..."
+                    className="h-10 w-full rounded-md border border-border bg-background pl-9 pr-9 text-sm text-foreground outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                  />
+                  {query && (
+                    <button
+                      onClick={() => setQuery('')}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                    >
+                      <X className="size-4" />
+                    </button>
+                  )}
+                </div>
               </div>
               <div className="flex items-center gap-2">
                 <span className="hidden text-sm text-muted-foreground sm:inline">Sort by:</span>
