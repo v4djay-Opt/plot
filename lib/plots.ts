@@ -1,4 +1,15 @@
-import { Plot } from '@/components/property/PropertyCard';
+export interface Plot {
+  id: string;
+  title: string;
+  price: number;
+  priceLabel: string;
+  area: number;
+  areaLabel: string;
+  location: string;
+  rera: string;
+  status: 'Available' | 'Sold Out';
+  tag?: string;
+}
 
 export const allPlots: Plot[] = [
   { id: '1', title: '200 Sq Yd Residential Plot in Sector 102, Gurgaon', price: 4500000, priceLabel: '\u20B945,00,000', area: 200, areaLabel: '200 Sq Yd', location: 'Sector 102, Gurgaon', rera: 'RERA: HR/420/152/2023', status: 'Available', tag: 'Corner Plot' },

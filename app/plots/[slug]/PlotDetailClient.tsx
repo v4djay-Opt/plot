@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import PropertyCard from '@/components/property/PropertyCard';
 import FAQ from '@/components/site/FAQ';
-import { Plot } from '@/components/property/PropertyCard';
+import type { Plot } from '@/lib/plots';
 import {
   MapPin, Ruler, Phone, MessageCircle, ShieldCheck, CheckCircle2,
   Home, Zap, Droplets, TreePine, GraduationCap, Route as RouteIcon,

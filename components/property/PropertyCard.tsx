@@ -2,19 +2,7 @@
 
 import { MapPin, Ruler, MessageCircle, Home } from "lucide-react";
 import { useRouter } from "next/navigation";
-
-export interface Plot {
-  id: string;
-  title: string;
-  price: number;
-  priceLabel: string;
-  area: number;
-  areaLabel: string;
-  location: string;
-  rera: string;
-  status: 'Available' | 'Sold Out';
-  tag?: string;
-}
+import type { Plot } from '@/lib/plots';
 
 function PlotImage() {
   return (
