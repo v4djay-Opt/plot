@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import PlotsClient from './PlotsClient';
+import SchemaMarkup from '@/components/seo/SchemaMarkup';
 
 export const metadata: Metadata = {
   title: 'All Residential Plots — Gurgaon, Sohna, Jajjar & More',
@@ -25,10 +26,73 @@ export const metadata: Metadata = {
   },
 };
 
+const plotsSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'All Residential Plots — plotsgurgaon.in',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Plots in Gurgaon',
+        url: 'https://plotsgurgaon.in/plots-in-gurgaon',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Plots in Sohna',
+        url: 'https://plotsgurgaon.in/plots-in-sohna',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'Plots in Jajjar',
+        url: 'https://plotsgurgaon.in/plots-in-jajjar',
+      },
+      {
+        '@type': 'ListItem',
+        position: 4,
+        name: 'Plots in Ayodhya',
+        url: 'https://plotsgurgaon.in/plots-in-ayodhya',
+      },
+      {
+        '@type': 'ListItem',
+        position: 5,
+        name: 'Plots in Mathura',
+        url: 'https://plotsgurgaon.in/plots-in-mathura',
+      },
+      {
+        '@type': 'ListItem',
+        position: 6,
+        name: 'Plots in Lucknow',
+        url: 'https://plotsgurgaon.in/plots-in-lucknow',
+      },
+      {
+        '@type': 'ListItem',
+        position: 7,
+        name: 'Plots in Gorakhpur',
+        url: 'https://plotsgurgaon.in/plots-in-gorakhpur',
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://plotsgurgaon.in' },
+      { '@type': 'ListItem', position: 2, name: 'All Plots', item: 'https://plotsgurgaon.in/plots' },
+    ],
+  },
+];
+
 export default function PlotsPage() {
   return (
-    <Suspense fallback={null}>
-      <PlotsClient />
-    </Suspense>
+    <>
+      <SchemaMarkup schema={plotsSchema} />
+      <Suspense fallback={null}>
+        <PlotsClient />
+      </Suspense>
+    </>
   );
 }

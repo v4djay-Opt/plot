@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import LeadCapture from '@/components/site/LeadCapture';
+import SchemaMarkup from '@/components/seo/SchemaMarkup';
 import { Phone, Mail, Clock } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -25,9 +26,32 @@ export const metadata: Metadata = {
   },
 };
 
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact PlotsGurgaon',
+  url: 'https://plotsgurgaon.in/contact',
+  description:
+    'Get in touch with Rohit Singh for verified residential plots in Gurgaon, Jajjar & beyond. Free site visits.',
+  mainEntity: {
+    '@type': 'RealEstateAgent',
+    name: 'Plots Gurgaon',
+    telephone: '+91-9311122787',
+    email: 'info@plotsgurgaon.in',
+    url: 'https://plotsgurgaon.in',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Gurugram',
+      addressRegion: 'Haryana',
+      addressCountry: 'IN',
+    },
+  },
+};
+
 export default function ContactPage() {
   return (
     <>
+      <SchemaMarkup schema={contactSchema} />
       <section className="relative overflow-hidden border-b border-border">
         <img
           src="/images/hero-bg.jpg"

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ArrowRight, Clock } from 'lucide-react';
 import FAQ from '@/components/site/FAQ';
 import { BLOG_POSTS } from '@/components/site/blogData';
+import SchemaMarkup from '@/components/seo/SchemaMarkup';
 
 export const metadata = {
   title: 'Blog — Plot Buying Tips, Market Insights & RERA Guides',
@@ -24,11 +25,30 @@ export const metadata = {
   },
 };
 
+const blogSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'PlotsGurgaon Blog',
+  url: 'https://plotsgurgaon.in/blog',
+  description: 'Practical guides on buying residential plots in Gurgaon, Sohna and Jajjar.',
+  blogPost: BLOG_POSTS.map((post, i) => ({
+    '@type': 'BlogPosting',
+    position: i + 1,
+    headline: post.title,
+    description: post.excerpt,
+    url: `https://plotsgurgaon.in/blog/${post.slug}`,
+    author: { '@type': 'Person', name: post.author },
+    datePublished: post.date,
+    image: post.cover,
+  })),
+};
+
 export default function BlogPage() {
   const [featured, ...rest] = BLOG_POSTS;
 
   return (
     <>
+      <SchemaMarkup schema={blogSchema} />
       <section className="relative overflow-hidden border-b border-border">
         <img
           src="/images/hero-bg.jpg"

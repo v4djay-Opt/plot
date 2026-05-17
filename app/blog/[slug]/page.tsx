@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, Calendar, Clock, User } from 'lucide-react';
 import FAQ from '@/components/site/FAQ';
+import SchemaMarkup from '@/components/seo/SchemaMarkup';
 import { BLOG_POSTS, getPost } from '@/components/site/blogData';
 
 export function generateStaticParams() {
@@ -40,8 +41,34 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
   const related = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
 
+  const postSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    url: `https://plotsgurgaon.in/blog/${post.slug}`,
+    image: post.cover,
+    author: { '@type': 'Person', name: post.author },
+    datePublished: post.date,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://plotsgurgaon.in/blog/${post.slug}`,
+    },
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://plotsgurgaon.in' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://plotsgurgaon.in/blog' },
+      { '@type': 'ListItem', position: 3, name: post.title, item: `https://plotsgurgaon.in/blog/${post.slug}` },
+    ],
+  };
+
   return (
     <>
+      <SchemaMarkup schema={[postSchema, breadcrumbSchema]} />
       <article>
         <div className="relative h-[42vh] min-h-[320px] w-full overflow-hidden">
           <img
