@@ -1,6 +1,7 @@
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { visionTool } from '@sanity/vision';
+import { presentationTool } from 'sanity/presentation';
 import { seoMetaFields } from 'sanity-plugin-seo';
 import { schemaTypes } from './schemas';
 
@@ -28,6 +29,15 @@ export default defineConfig({
             S.documentTypeListItem('microLocation').title('Micro Locations'),
             S.documentTypeListItem('redirect').title('Redirects'),
           ]),
+    }),
+    presentationTool({
+      previewUrl: {
+        origin: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+        previewMode: {
+          enable: '/api/draft-mode/enable',
+          disable: '/api/draft-mode/disable',
+        },
+      },
     }),
     visionTool(),
     seoMetaFields(),
