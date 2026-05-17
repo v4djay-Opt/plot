@@ -4,12 +4,8 @@ import { useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import PropertyCard from '@/components/property/PropertyCard';
 import LeadCapture from '@/components/site/LeadCapture';
-import { allPlots } from '@/lib/plots';
+import { type Plot } from '@/lib/plots';
 import { SlidersHorizontal, Search, X } from 'lucide-react';
-
-const LOCATIONS = ['Sector 102, Gurgaon', 'Sohna', 'Sector 65', 'Jhajjar', 'Dwarka Expressway', 'Gurgaon'];
-const TAGS = ['Corner Plot', 'Park Facing', 'Main Road Facing'];
-const STATUSES = ['Available', 'Sold Out'];
 
 function FilterSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -28,7 +24,7 @@ const LOCATION_MAP: Record<string, string[]> = {
   jhajjar: ['Jhajjar'],
 };
 
-export default function PlotsClient() {
+export default function PlotsClient({ plots }: { plots: Plot[] }) {
   const searchParams = useSearchParams();
 
   const urlLoc = searchParams.get('location') ?? '';
@@ -50,9 +46,13 @@ export default function PlotsClient() {
   const [minPrice, setMinPrice] = useState(urlMinPrice);
   const [maxPrice, setMaxPrice] = useState(urlMaxPrice);
 
+  const LOCATIONS = useMemo(() => Array.from(new Set(plots.map((p) => p.location))), [plots]);
+  const TAGS = useMemo(() => Array.from(new Set(plots.map((p) => p.tag).filter(Boolean) as string[])), [plots]);
+  const STATUSES = useMemo(() => Array.from(new Set(plots.map((p) => p.status))), [plots]);
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    const list = allPlots.filter((p) => {
+    const list = plots.filter((p) => {
       if (selectedLocations.length && !selectedLocations.includes(p.location)) return false;
       if (selectedStatuses.length && !selectedStatuses.includes(p.status)) return false;
       if (selectedTags.length && (!p.tag || !selectedTags.includes(p.tag))) return false;
@@ -69,7 +69,7 @@ export default function PlotsClient() {
     else if (sort === 'price-desc') sorted.sort((a, b) => b.price - a.price);
     else if (sort === 'area') sorted.sort((a, b) => b.area - a.area);
     return sorted;
-  }, [selectedLocations, selectedStatuses, selectedTags, sort, query]);
+  }, [selectedLocations, selectedStatuses, selectedTags, sort, query, plots, minArea, maxArea, minPrice, maxPrice]);
 
   function toggleItem<T>(arr: T[], item: T, set: (v: T[]) => void) {
     set(arr.includes(item) ? arr.filter((i) => i !== item) : [...arr, item]);
@@ -244,7 +244,7 @@ export default function PlotsClient() {
                       onClick={() => setMobileFiltersOpen(false)}
                       className="rounded-md p-1 text-muted-foreground hover:text-foreground"
                     >
-                      âœ•
+                      ✕
                     </button>
                   </div>
                   <div className="mt-6">{FilterContent}</div>

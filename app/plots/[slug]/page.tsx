@@ -1,17 +1,28 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { allPlots, getPlotBySlug, slugify } from '@/lib/plots';
+import { allPlots, getPlotBySlug, slugify, type Plot } from '@/lib/plots';
+import { getSanityPlotBySlug } from '@/lib/sanity-plots';
 import PlotDetailClient from './PlotDetailClient';
 import SchemaMarkup from '@/components/seo/SchemaMarkup';
 
+import { sanityClient } from '@/sanity/lib/client';
+
 export async function generateStaticParams() {
-  return allPlots.map((plot) => ({
+  const hardcoded = allPlots.map((plot) => ({
     slug: slugify(plot.title),
   }));
+  try {
+    const sanitySlugs = await sanityClient.fetch<Array<{ slug: string }>>(
+      `*[_type == "property"]{ "slug": slug.current }`
+    );
+    return [...hardcoded, ...sanitySlugs];
+  } catch {
+    return hardcoded;
+  }
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const plot = getPlotBySlug(params.slug);
+  const plot = getPlotBySlug(params.slug) ?? await getSanityPlotBySlug(params.slug);
   if (!plot) return {};
 
   return {
@@ -29,12 +40,15 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function PlotDetailPage({ params }: { params: { slug: string } }) {
-  const plot = getPlotBySlug(params.slug);
+export default async function PlotDetailPage({ params }: { params: { slug: string } }) {
+  let plot: Plot | undefined = getPlotBySlug(params.slug);
+  if (!plot) {
+    plot = await getSanityPlotBySlug(params.slug);
+  }
   if (!plot) notFound();
 
   const related = allPlots
-    .filter((p) => p.id !== plot.id && p.location === plot.location)
+    .filter((p) => p.id !== plot!.id && p.location === plot!.location)
     .slice(0, 2);
 
   const schema = {

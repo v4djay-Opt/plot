@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import PlotsClient from './PlotsClient';
 import SchemaMarkup from '@/components/seo/SchemaMarkup';
+import { allPlots } from '@/lib/plots';
+import { getAllSanityPlots } from '@/lib/sanity-plots';
 
 export const metadata: Metadata = {
   title: 'All Residential Plots "” Gurgaon, Sohna, Jhajjar & More',
@@ -86,12 +88,15 @@ const plotsSchema = [
   },
 ];
 
-export default function PlotsPage() {
+export default async function PlotsPage() {
+  const sanityPlots = await getAllSanityPlots();
+  const plots = [...allPlots, ...sanityPlots];
+
   return (
     <>
       <SchemaMarkup schema={plotsSchema} />
       <Suspense fallback={null}>
-        <PlotsClient />
+        <PlotsClient plots={plots} />
       </Suspense>
     </>
   );

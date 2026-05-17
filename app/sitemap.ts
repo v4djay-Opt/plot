@@ -1,8 +1,9 @@
 import type { MetadataRoute } from 'next';
 import { BLOG_POSTS } from '@/components/site/blogData';
 import { allPlots, slugify } from '@/lib/plots';
+import { sanityClient } from '@/sanity/lib/client';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://plotsgurgaon.in';
 
   const routes: MetadataRoute.Sitemap = [
@@ -34,5 +35,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...routes, ...blogRoutes, ...plotRoutes];
+  let sanityPlotRoutes: MetadataRoute.Sitemap = [];
+  try {
+    const sanitySlugs = await sanityClient.fetch<Array<{ slug: string }>>(
+      `*[_type == "property"]{ "slug": slug.current }`
+    );
+    sanityPlotRoutes = sanitySlugs.map((s) => ({
+      url: `${baseUrl}/plots/${s.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    }));
+  } catch {
+    // ignore Sanity fetch errors during build
+  }
+
+  return [...routes, ...blogRoutes, ...plotRoutes, ...sanityPlotRoutes];
 }
