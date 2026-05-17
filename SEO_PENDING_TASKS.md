@@ -2,6 +2,8 @@
 
 Generated from `seo-implementation-plan-7369ea.md`
 
+> **Latest audit:** See `final.md` (17 May 2026) — comprehensive SEO/health audit with scores, issues, and fix verification.
+
 ---
 
 ## Phase 1: Foundation (Must-Do First)
@@ -48,8 +50,13 @@ Generated from `seo-implementation-plan-7369ea.md`
 | 1 | **OG Images** | Low | Create 1200×630 branded images for homepage, city pages, blog posts. Current images exist but are generic. |
 | 2 | **Directory Listings** | High | Manual task — ensure exact same NAP across all directories |
 | 3 | **Blog Content (5 articles)** | High | Write and publish from the strategy's 15 ideas |
-| 4 | **Schema markup** | **Done** | All 11 pages now have JSON-LD schema |
+| 4 | **Schema markup** | **Done** | All 14 pages now have JSON-LD schema (including plot detail `RealEstateListing`) |
 | 5 | **Plots page metadata** | **Done** | Refactored `plots/page.tsx` to server component with metadata; extracted `PlotsClient.tsx` |
+| 6 | **Plot detail metadata** | **Done** | Refactored `/plots/[slug]` to server component with `generateMetadata` + `generateStaticParams` + schema |
+| 7 | **Sitemap expansion** | **Done** | Sitemap now has 30 URLs including blog posts + 12 plot detail pages |
+| 8 | **Lead form backend** | **Done** | `/api/lead` implemented with Resend email delivery; `LeadCapture.tsx` now POSTs for real |
+| 9 | **Blog dates ISO 8601** | **Done** | All 6 blog posts use ISO dates; `formatDate` helper for display |
+| 10 | **Plot data deduplication** | **Done** | Centralized `lib/plots.ts` eliminates data drift across 3 files |
 
 ---
 
