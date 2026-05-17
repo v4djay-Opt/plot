@@ -32,13 +32,13 @@ import {
 export const Route = createFileRoute("/plots/")({
   head: () => ({
     meta: [
-      { title: "All Residential Plots in Gurgaon, Sohna & Jajjar — PlotsGurgaon.in" },
+      { title: "All Residential Plots in Gurgaon, Sohna & Jhajjar â€” PlotsGurgaon.in" },
       {
         name: "description",
         content:
-          "Browse RERA registered residential plots across Gurgaon, Sohna, Jajjar, Sector 102, Sector 65 and Dwarka Expressway. Filter by location, size and budget.",
+          "Browse RERA registered residential plots across Gurgaon, Sohna, Jhajjar, Sector 102, Sector 65 and Dwarka Expressway. Filter by location, size and budget.",
       },
-      { property: "og:title", content: "All Residential Plots — PlotsGurgaon.in" },
+      { property: "og:title", content: "All Residential Plots â€” PlotsGurgaon.in" },
       {
         property: "og:description",
         content: "Filter residential plots by location, size, budget and type. Direct from owner.",
@@ -104,8 +104,8 @@ function PlotsPage() {
               All Residential Plots
             </h1>
             <p className="mt-3 max-w-2xl text-primary-foreground/85">
-              RERA registered plots across Gurgaon, Sohna and Jajjar. Direct from
-              owner — no broker fees.
+              RERA registered plots across Gurgaon, Sohna and Jhajjar. Direct from
+              owner â€” no broker fees.
             </p>
           </div>
         </section>

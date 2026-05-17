@@ -89,7 +89,7 @@ export default function LeadCapture() {
                   <option value="">Select a location</option>
                   <option value="gurgaon">Gurgaon</option>
                   <option value="sohna">Sohna</option>
-                  <option value="jajjar">Jajjar</option>
+                  <option value="jhajjar">Jhajjar</option>
                   <option value="any">Open to suggestions</option>
                 </select>
               </div>
@@ -98,7 +98,7 @@ export default function LeadCapture() {
                 disabled={submitting}
                 className="h-12 w-full rounded-md bg-accent text-base font-semibold text-accent-foreground transition hover:bg-accent/90 disabled:opacity-60"
               >
-                {submitting ? 'Sending…' : 'Request Callback'}
+                {submitting ? 'Sendingâ€¦' : 'Request Callback'}
               </button>
             </div>
           )}

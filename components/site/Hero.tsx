@@ -31,7 +31,7 @@ export default function Hero() {
           Find Your Perfect Plot in Gurgaon
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-base text-white/85 sm:text-lg">
-          Residential plots in Gurgaon, Sohna &amp; Jajjar. Direct from owner. RERA registered.
+          Residential plots in Gurgaon, Sohna &amp; Jhajjar. Direct from owner. RERA registered.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link

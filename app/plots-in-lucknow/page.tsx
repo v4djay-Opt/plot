@@ -2,17 +2,17 @@ import type { Metadata } from 'next';
 import CityLandingPage from '@/components/site/CityLandingPage';
 
 export const metadata: Metadata = {
-  title: 'Residential Plots in Lucknow Under ₹50 Lakh',
+  title: 'Residential Plots in Lucknow Under â‚¹50 Lakh',
   description:
-    'Best residential plots in Lucknow under ₹50 lakh. LDA approved & verified listings in prime sectors. Call 09311122787 — plotsgurgaon.in',
+    'Best residential plots in Lucknow under â‚¹50 lakh. LDA approved & verified listings in prime sectors. Call 09311122787 â€” plotsgurgaon.in',
   alternates: {
     canonical: 'https://plotsgurgaon.in/plots-in-lucknow',
   },
   openGraph: {
     url: 'https://plotsgurgaon.in/plots-in-lucknow',
-    title: 'Residential Plots in Lucknow Under ₹50 Lakh | plotsgurgaon.in',
+    title: 'Residential Plots in Lucknow Under â‚¹50 Lakh | plotsgurgaon.in',
     description:
-      'Best residential plots in Lucknow under ₹50 lakh. LDA approved & verified listings in prime sectors. Call 09311122787 — plotsgurgaon.in',
+      'Best residential plots in Lucknow under â‚¹50 lakh. LDA approved & verified listings in prime sectors. Call 09311122787 â€” plotsgurgaon.in',
     images: [
       {
         url: '/images/hero-bg.jpg',

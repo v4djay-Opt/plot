@@ -38,15 +38,15 @@ export const Route = createFileRoute("/plots/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.plot.title} — PlotsGurgaon.in` },
+          { title: `${loaderData.plot.title} â€” PlotsGurgaon.in` },
           {
             name: "description",
-            content: `${loaderData.plot.title} at ${loaderData.plot.priceLabel}. RERA registered. Direct from owner — book a free site visit with Rohit Singh.`,
+            content: `${loaderData.plot.title} at ${loaderData.plot.priceLabel}. RERA registered. Direct from owner â€” book a free site visit with Rohit Singh.`,
           },
-          { property: "og:title", content: `${loaderData.plot.title} — PlotsGurgaon.in` },
+          { property: "og:title", content: `${loaderData.plot.title} â€” PlotsGurgaon.in` },
           {
             property: "og:description",
-            content: `${loaderData.plot.priceLabel} · ${loaderData.plot.areaLabel} · ${loaderData.plot.location}. RERA registered, direct from owner.`,
+            content: `${loaderData.plot.priceLabel} Â· ${loaderData.plot.areaLabel} Â· ${loaderData.plot.location}. RERA registered, direct from owner.`,
           },
         ]
       : [],
@@ -107,7 +107,7 @@ function PlotDetailPage() {
   });
 
   const pricePerYd = useMemo(
-    () => `₹${Math.round(plot.price / plot.area).toLocaleString("en-IN")}/sq yd`,
+    () => `â‚¹${Math.round(plot.price / plot.area).toLocaleString("en-IN")}/sq yd`,
     [plot.price, plot.area],
   );
 
@@ -257,7 +257,7 @@ function PlotDetailPage() {
                   </p>
                   <p>
                     Ideal for end-users planning to build a custom home or investors looking for
-                    capital appreciation. Direct from owner — no broker fees, complete RERA-approved
+                    capital appreciation. Direct from owner â€” no broker fees, complete RERA-approved
                     paperwork and clean title.
                   </p>
                 </div>

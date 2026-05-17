@@ -20,17 +20,17 @@ import heroBg from "@/assets/hero-bg.jpg";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Rohit Singh — PlotsGurgaon.in" },
+      { title: "Contact Rohit Singh â€” PlotsGurgaon.in" },
       {
         name: "description",
         content:
-          "Contact Rohit Singh for plot enquiries, site visits, and pricing in Gurgaon, Sohna, and Jajjar. Call, WhatsApp, or email — typical response in 2 hours.",
+          "Contact Rohit Singh for plot enquiries, site visits, and pricing in Gurgaon, Sohna, and Jhajjar. Call, WhatsApp, or email â€” typical response in 2 hours.",
       },
-      { property: "og:title", content: "Contact Rohit Singh — PlotsGurgaon.in" },
+      { property: "og:title", content: "Contact Rohit Singh â€” PlotsGurgaon.in" },
       {
         property: "og:description",
         content:
-          "Reach Rohit Singh for plot enquiries, site visits, and pricing across Gurgaon, Sohna, and Jajjar.",
+          "Reach Rohit Singh for plot enquiries, site visits, and pricing across Gurgaon, Sohna, and Jhajjar.",
       },
     ],
   }),
@@ -86,7 +86,7 @@ function ContactPage() {
       {/* Two-column */}
       <section className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-20">
         <div className="grid gap-10 lg:grid-cols-2">
-          {/* Left — Contact Info */}
+          {/* Left â€” Contact Info */}
           <div className="space-y-6">
             <div className="rounded-2xl border border-border bg-card p-6 shadow-sm md:p-8">
               <div className="flex items-center gap-4">
@@ -139,7 +139,7 @@ function ContactPage() {
                   <Clock className="mt-0.5 size-5 shrink-0 text-secondary" />
                   <div>
                     <p className="text-xs uppercase tracking-wider text-muted-foreground">Working Hours</p>
-                    <p className="font-medium text-foreground">Mon–Sat, 9 AM – 7 PM</p>
+                    <p className="font-medium text-foreground">Monâ€“Sat, 9 AM â€“ 7 PM</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -174,7 +174,7 @@ function ContactPage() {
             </div>
           </div>
 
-          {/* Right — Form */}
+          {/* Right â€” Form */}
           <div className="rounded-2xl border border-border bg-card p-6 shadow-sm md:p-8">
             <h2 className="font-display text-2xl font-bold text-foreground">Send an Enquiry</h2>
             <p className="mt-1 text-sm text-muted-foreground">
@@ -220,7 +220,7 @@ function ContactPage() {
                     <SelectContent>
                       <SelectItem value="gurgaon">Gurgaon</SelectItem>
                       <SelectItem value="sohna">Sohna</SelectItem>
-                      <SelectItem value="jajjar">Jajjar</SelectItem>
+                      <SelectItem value="jhajjar">Jhajjar</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -231,11 +231,11 @@ function ContactPage() {
                       <SelectValue placeholder="Select budget" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="<50L">Under ₹50 Lakh</SelectItem>
-                      <SelectItem value="50L-1Cr">₹50 Lakh – ₹1 Cr</SelectItem>
-                      <SelectItem value="1-2Cr">₹1 – 2 Cr</SelectItem>
-                      <SelectItem value="2-5Cr">₹2 – 5 Cr</SelectItem>
-                      <SelectItem value="5Cr+">₹5 Cr+</SelectItem>
+                      <SelectItem value="<50L">Under â‚¹50 Lakh</SelectItem>
+                      <SelectItem value="50L-1Cr">â‚¹50 Lakh â€“ â‚¹1 Cr</SelectItem>
+                      <SelectItem value="1-2Cr">â‚¹1 â€“ 2 Cr</SelectItem>
+                      <SelectItem value="2-5Cr">â‚¹2 â€“ 5 Cr</SelectItem>
+                      <SelectItem value="5Cr+">â‚¹5 Cr+</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -248,7 +248,7 @@ function ContactPage() {
                   name="message"
                   rows={4}
                   maxLength={1000}
-                  placeholder="Tell us about your requirements…"
+                  placeholder="Tell us about your requirementsâ€¦"
                   className="mt-1.5"
                 />
               </div>
@@ -258,7 +258,7 @@ function ContactPage() {
                 disabled={submitting}
                 className="h-12 w-full rounded-md bg-secondary text-base font-semibold text-secondary-foreground hover:bg-secondary/90"
               >
-                {submitting ? "Sending…" : "Send Enquiry"}
+                {submitting ? "Sendingâ€¦" : "Send Enquiry"}
               </Button>
               <p className="text-center text-xs text-muted-foreground">
                 We typically respond within 2 hours
@@ -278,7 +278,7 @@ function ContactPage() {
             {[
               { label: "View Gurgaon Plots", to: "/plots-in-gurgaon" as const },
               { label: "View Sohna Plots", to: "/plots-in-sohna" as const },
-              { label: "View Jajjar Plots", to: "/plots-in-jajjar" as const },
+              { label: "View Jhajjar Plots", to: "/plots-in-jhajjar" as const },
             ].map((c) => (
               <Link
                 key={c.to}

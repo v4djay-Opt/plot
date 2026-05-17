@@ -4,17 +4,17 @@ import PlotsClient from './PlotsClient';
 import SchemaMarkup from '@/components/seo/SchemaMarkup';
 
 export const metadata: Metadata = {
-  title: 'All Residential Plots — Gurgaon, Sohna, Jajjar & More',
+  title: 'All Residential Plots â€” Gurgaon, Sohna, Jhajjar & More',
   description:
-    'Browse verified residential plots across Gurgaon, Sohna, Jajjar and beyond. Filter by location, price, size and status. Call 09311122787 — plotsgurgaon.in',
+    'Browse verified residential plots across Gurgaon, Sohna, Jhajjar and beyond. Filter by location, price, size and status. Call 09311122787 â€” plotsgurgaon.in',
   alternates: {
     canonical: 'https://plotsgurgaon.in/plots',
   },
   openGraph: {
     url: 'https://plotsgurgaon.in/plots',
-    title: 'All Residential Plots — Gurgaon, Sohna, Jajjar & More | plotsgurgaon.in',
+    title: 'All Residential Plots â€” Gurgaon, Sohna, Jhajjar & More | plotsgurgaon.in',
     description:
-      'Browse verified residential plots across Gurgaon, Sohna, Jajjar and beyond. Filter by location, price, size and status. Call 09311122787 — plotsgurgaon.in',
+      'Browse verified residential plots across Gurgaon, Sohna, Jhajjar and beyond. Filter by location, price, size and status. Call 09311122787 â€” plotsgurgaon.in',
     images: [
       {
         url: '/images/hero-plot.jpg',
@@ -30,7 +30,7 @@ const plotsSchema = [
   {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'All Residential Plots — plotsgurgaon.in',
+    name: 'All Residential Plots â€” plotsgurgaon.in',
     itemListElement: [
       {
         '@type': 'ListItem',
@@ -47,8 +47,8 @@ const plotsSchema = [
       {
         '@type': 'ListItem',
         position: 3,
-        name: 'Plots in Jajjar',
-        url: 'https://plotsgurgaon.in/plots-in-jajjar',
+        name: 'Plots in Jhajjar',
+        url: 'https://plotsgurgaon.in/plots-in-jhajjar',
       },
       {
         '@type': 'ListItem',

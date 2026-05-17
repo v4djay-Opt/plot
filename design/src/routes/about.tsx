@@ -8,17 +8,17 @@ import { WhatsAppFab } from "@/components/site/WhatsAppFab";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us — PlotsGurgaon.in" },
+      { title: "About Us â€” PlotsGurgaon.in" },
       {
         name: "description",
         content:
-          "Learn about PlotsGurgaon.in — a trusted team helping buyers find verified residential plots across Gurgaon, Sohna, and Jajjar with the best pricing.",
+          "Learn about PlotsGurgaon.in â€” a trusted team helping buyers find verified residential plots across Gurgaon, Sohna, and Jhajjar with the best pricing.",
       },
-      { property: "og:title", content: "About Us — PlotsGurgaon.in" },
+      { property: "og:title", content: "About Us â€” PlotsGurgaon.in" },
       {
         property: "og:description",
         content:
-          "Trusted plot consultants in Gurgaon, Sohna, and Jajjar — verified titles, best pricing, and free site visits.",
+          "Trusted plot consultants in Gurgaon, Sohna, and Jhajjar â€” verified titles, best pricing, and free site visits.",
       },
     ],
   }),
@@ -55,7 +55,7 @@ function AboutPage() {
             <p className="mt-4 max-w-2xl text-base text-primary-foreground/85 md:text-lg">
               PlotsGurgaon.in is a specialised land advisory connecting serious
               buyers with hand-picked, verified residential plots across
-              Gurgaon, Sohna, and Jajjar — at the best market pricing.
+              Gurgaon, Sohna, and Jhajjar â€” at the best market pricing.
             </p>
           </div>
         </section>
@@ -91,7 +91,7 @@ function AboutPage() {
               </p>
               <p className="mt-3 text-muted-foreground">
                 Today, we work directly with land owners and trusted developers
-                to bring you a curated catalogue — every plot title-checked,
+                to bring you a curated catalogue â€” every plot title-checked,
                 location-verified, and competitively priced.
               </p>
             </div>
@@ -103,7 +103,7 @@ function AboutPage() {
                 <li className="flex gap-3"><ShieldCheck className="mt-0.5 size-5 shrink-0 text-secondary" /> Verified titles and RERA-registered listings wherever applicable.</li>
                 <li className="flex gap-3"><Award className="mt-0.5 size-5 shrink-0 text-secondary" /> Best-pricing guarantee with transparent, owner-direct deals.</li>
                 <li className="flex gap-3"><Users className="mt-0.5 size-5 shrink-0 text-secondary" /> Free site visits with personal guidance from our consultants.</li>
-                <li className="flex gap-3"><MapPin className="mt-0.5 size-5 shrink-0 text-secondary" /> Deep on-ground expertise across Gurgaon, Sohna, and Jajjar.</li>
+                <li className="flex gap-3"><MapPin className="mt-0.5 size-5 shrink-0 text-secondary" /> Deep on-ground expertise across Gurgaon, Sohna, and Jhajjar.</li>
               </ul>
             </div>
           </div>
@@ -115,7 +115,7 @@ function AboutPage() {
               Ready to explore your next plot?
             </h3>
             <p className="mx-auto mt-2 max-w-xl text-sm text-primary-foreground/80">
-              Talk to Rohit Singh — typical reply within 2 hours.
+              Talk to Rohit Singh â€” typical reply within 2 hours.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <a

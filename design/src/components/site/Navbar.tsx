@@ -21,7 +21,7 @@ const links = [
 const cityLinks = [
   { label: "Gurgaon", to: "/plots-in-gurgaon" as const },
   { label: "Sohna", to: "/plots-in-sohna" as const },
-  { label: "Jajjar", to: "/plots-in-jajjar" as const },
+  { label: "Jhajjar", to: "/plots-in-jhajjar" as const },
 ];
 
 export function Navbar() {
@@ -39,13 +39,13 @@ export function Navbar() {
       <div className="hidden bg-primary text-primary-foreground md:block">
         <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-6 text-xs">
           <p className="tracking-wide opacity-90">
-            RERA Registered · Best Price Guaranteed · Free Site Visits
+            RERA Registered Â· Best Price Guaranteed Â· Free Site Visits
           </p>
           <div className="flex items-center gap-5">
             <a href="tel:+919311122787" className="inline-flex items-center gap-1.5 opacity-90 transition hover:opacity-100">
               <Phone className="size-3.5" /> +91 93111 22787
             </a>
-            <span className="opacity-70">Mon–Sat · 9 AM – 7 PM</span>
+            <span className="opacity-70">Monâ€“Sat Â· 9 AM â€“ 7 PM</span>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@ export function Navbar() {
                 PlotsGurgaon<span className="text-secondary">.in</span>
               </span>
               <span className="mt-1 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                Premium Land · Trusted Deals
+                Premium Land Â· Trusted Deals
               </span>
             </span>
           </Link>

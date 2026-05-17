@@ -24,6 +24,11 @@ const nextConfig = {
         destination: '/plots/:slug',
         permanent: true,
       },
+      {
+        source: '/plots-in-jhajjar',
+        destination: '/plots-in-jhajjar',
+        permanent: true,
+      },
     ];
   },
   async headers() {

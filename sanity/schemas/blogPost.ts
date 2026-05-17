@@ -110,7 +110,7 @@ export default defineType({
       const date = publishedAt ? new Date(publishedAt).toLocaleDateString('en-IN') : '';
       return {
         title,
-        subtitle: `${category || 'Uncategorized'} • ${date}`,
+        subtitle: `${category || 'Uncategorized'} â€¢ ${date}`,
         media: selection.media,
       };
     },

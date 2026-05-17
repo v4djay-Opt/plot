@@ -2,12 +2,12 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import gurgaonImg from "@/assets/loc-gurgaon.jpg";
 import sohnaImg from "@/assets/loc-sohna.jpg";
-import jajjarImg from "@/assets/loc-jajjar.jpg";
+import jhajjarImg from "@/assets/loc-jhajjar.jpg";
 
 const locations = [
   { name: "Plots in Gurgaon", count: "8 plots available", image: gurgaonImg, to: "/plots-in-gurgaon" as const },
   { name: "Plots in Sohna", count: "5 plots available", image: sohnaImg, to: "/plots-in-sohna" as const },
-  { name: "Plots in Jajjar", count: "3 plots available", image: jajjarImg, to: "/plots-in-jajjar" as const },
+  { name: "Plots in Jhajjar", count: "3 plots available", image: jhajjarImg, to: "/plots-in-jhajjar" as const },
 ];
 
 export function Locations() {

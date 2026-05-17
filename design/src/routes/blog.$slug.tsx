@@ -17,7 +17,7 @@ export const Route = createFileRoute("/blog/$slug")({
     if (!post) return { meta: [{ title: "Article not found" }] };
     return {
       meta: [
-        { title: `${post.title} — PlotsGurgaon Blog` },
+        { title: `${post.title} â€” PlotsGurgaon Blog` },
         { name: "description", content: post.excerpt },
         { property: "og:title", content: post.title },
         { property: "og:description", content: post.excerpt },
@@ -142,7 +142,7 @@ function BlogPostPage() {
                       {p.title}
                     </h3>
                     <span className="mt-auto pt-4 text-xs text-muted-foreground">
-                      {p.date} · {p.readTime}
+                      {p.date} Â· {p.readTime}
                     </span>
                   </div>
                 </Link>

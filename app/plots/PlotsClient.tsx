@@ -7,7 +7,7 @@ import LeadCapture from '@/components/site/LeadCapture';
 import { allPlots } from '@/lib/plots';
 import { SlidersHorizontal, Search, X } from 'lucide-react';
 
-const LOCATIONS = ['Sector 102, Gurgaon', 'Sohna', 'Sector 65', 'Jajjar', 'Dwarka Expressway', 'Gurgaon'];
+const LOCATIONS = ['Sector 102, Gurgaon', 'Sohna', 'Sector 65', 'Jhajjar', 'Dwarka Expressway', 'Gurgaon'];
 const TAGS = ['Corner Plot', 'Park Facing', 'Main Road Facing'];
 const STATUSES = ['Available', 'Sold Out'];
 
@@ -25,7 +25,7 @@ type SortKey = 'latest' | 'price-asc' | 'price-desc' | 'area';
 const LOCATION_MAP: Record<string, string[]> = {
   gurgaon: ['Sector 102, Gurgaon', 'Sector 65', 'Dwarka Expressway', 'Gurgaon'],
   sohna: ['Sohna'],
-  jajjar: ['Jajjar'],
+  jhajjar: ['Jhajjar'],
 };
 
 export default function PlotsClient() {
@@ -170,7 +170,7 @@ export default function PlotsClient() {
             Residential Plots
           </h1>
           <p className="mt-4 max-w-2xl text-white/85">
-            Browse our complete inventory of verified residential plots across Gurgaon, Sohna, Jajjar and surrounding areas.
+            Browse our complete inventory of verified residential plots across Gurgaon, Sohna, Jhajjar and surrounding areas.
           </p>
         </div>
       </section>
@@ -244,7 +244,7 @@ export default function PlotsClient() {
                       onClick={() => setMobileFiltersOpen(false)}
                       className="rounded-md p-1 text-muted-foreground hover:text-foreground"
                     >
-                      ✕
+                      âœ•
                     </button>
                   </div>
                   <div className="mt-6">{FilterContent}</div>

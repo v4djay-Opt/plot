@@ -1,8 +1,8 @@
-# SEO Implementation — Pending Tasks
+# SEO Implementation â€” Pending Tasks
 
 Generated from `seo-implementation-plan-7369ea.md`
 
-> **Latest audit:** See `final.md` (17 May 2026) — comprehensive SEO/health audit with scores, issues, and fix verification.
+> **Latest audit:** See `final.md` (17 May 2026) â€” comprehensive SEO/health audit with scores, issues, and fix verification.
 
 ---
 
@@ -10,7 +10,7 @@ Generated from `seo-implementation-plan-7369ea.md`
 
 | # | Task | Status | Files |
 |---|------|--------|-------|
-| 1.1 | **Schema Markup — JSON-LD Components** | **Done** | All pages now have schema: Homepage (`RealEstateAgent` + `FAQPage`), 7 city pages (`RealEstateListing` + `FAQPage` + `BreadcrumbList`), Locations (`ItemList`), Plots (`ItemList` + `BreadcrumbList`), Blog (`Blog`), Blog posts (`BlogPosting` + `BreadcrumbList`), Contact (`ContactPage` + `RealEstateAgent`). |
+| 1.1 | **Schema Markup â€” JSON-LD Components** | **Done** | All pages now have schema: Homepage (`RealEstateAgent` + `FAQPage`), 7 city pages (`RealEstateListing` + `FAQPage` + `BreadcrumbList`), Locations (`ItemList`), Plots (`ItemList` + `BreadcrumbList`), Blog (`Blog`), Blog posts (`BlogPosting` + `BreadcrumbList`), Contact (`ContactPage` + `RealEstateAgent`). |
 | 1.2 | **Per-Page Metadata Overrides** | **Done** | Metadata + canonical added to all pages: `/`, all `/plots-in-*` (7), `/locations`, `/blog`, `/contact`, `/plots` |
 | 1.3 | **H1 Alignment with Strategy** | **Done** | Updated `CITY_CONFIGS` H1s for mathura, gorakhpur, lucknow to match strategy |
 
@@ -31,7 +31,7 @@ Generated from `seo-implementation-plan-7369ea.md`
 |---|------|--------|-------|
 | 3.1 | **Sitemap & Robots** | **Done** | `app/sitemap.ts` and `app/robots.ts` already exist |
 | 3.2 | **Image ALT Tags Audit** | **Done** | Fixed hero alt texts on city pages, blog, contact, plots. PropertyCard uses gradient (no img). |
-| 3.3 | **Open Graph Images** | **Done** | `openGraph.images` added to all pages using existing images: `/images/hero-bg.jpg`, `/images/hero-plot.jpg`, `/images/loc-gurgaon.jpg`, `/images/loc-jajjar.jpg`, `/images/loc-sohna.jpg` |
+| 3.3 | **Open Graph Images** | **Done** | `openGraph.images` added to all pages using existing images: `/images/hero-bg.jpg`, `/images/hero-plot.jpg`, `/images/loc-gurgaon.jpg`, `/images/loc-jhajjar.jpg`, `/images/loc-sohna.jpg` |
 | 3.4 | **Google Analytics Wiring** | **Done** | GA4 script wired in `app/layout.tsx` via `NEXT_PUBLIC_GA_ID` |
 
 ## Phase 4: Off-Page & Local SEO (Non-Code)
@@ -47,8 +47,8 @@ Generated from `seo-implementation-plan-7369ea.md`
 
 | # | Task | Priority | Notes |
 |---|------|----------|-------|
-| 1 | **OG Images** | Low | Create 1200×630 branded images for homepage, city pages, blog posts. Current images exist but are generic. |
-| 2 | **Directory Listings** | High | Manual task — ensure exact same NAP across all directories |
+| 1 | **OG Images** | Low | Create 1200Ã—630 branded images for homepage, city pages, blog posts. Current images exist but are generic. |
+| 2 | **Directory Listings** | High | Manual task â€” ensure exact same NAP across all directories |
 | 3 | **Blog Content (5 articles)** | High | Write and publish from the strategy's 15 ideas |
 | 4 | **Schema markup** | **Done** | All 14 pages now have JSON-LD schema (including plot detail `RealEstateListing`) |
 | 5 | **Plots page metadata** | **Done** | Refactored `plots/page.tsx` to server component with metadata; extracted `PlotsClient.tsx` |
@@ -63,6 +63,6 @@ Generated from `seo-implementation-plan-7369ea.md`
 ## Success Metrics
 
 - [ ] Google Search Console: All pages indexed, no crawl errors
-- [ ] Rich Results Test: FAQ schema detected on Jajjar + Gurgaon pages
+- [ ] Rich Results Test: FAQ schema detected on Jhajjar + Gurgaon pages
 - [ ] Schema.org Validator: RealEstateAgent + BreadcrumbList valid on homepage
 - [ ] PageSpeed Insights: LCP < 2.5s, mobile score > 90

@@ -24,7 +24,7 @@ export function SearchBar() {
               <SelectContent>
                 <SelectItem value="gurgaon">Gurgaon</SelectItem>
                 <SelectItem value="sohna">Sohna</SelectItem>
-                <SelectItem value="jajjar">Jajjar</SelectItem>
+                <SelectItem value="jhajjar">Jhajjar</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -37,8 +37,8 @@ export function SearchBar() {
                 <SelectValue placeholder="Any size" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="100-200">100 – 200 sq yd</SelectItem>
-                <SelectItem value="200-500">200 – 500 sq yd</SelectItem>
+                <SelectItem value="100-200">100 â€“ 200 sq yd</SelectItem>
+                <SelectItem value="200-500">200 â€“ 500 sq yd</SelectItem>
                 <SelectItem value="500+">500+ sq yd</SelectItem>
               </SelectContent>
             </Select>
@@ -52,9 +52,9 @@ export function SearchBar() {
                 <SelectValue placeholder="Any budget" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="under-20">Under ₹20L</SelectItem>
-                <SelectItem value="20-50">₹20L – ₹50L</SelectItem>
-                <SelectItem value="50+">₹50L+</SelectItem>
+                <SelectItem value="under-20">Under â‚¹20L</SelectItem>
+                <SelectItem value="20-50">â‚¹20L â€“ â‚¹50L</SelectItem>
+                <SelectItem value="50+">â‚¹50L+</SelectItem>
               </SelectContent>
             </Select>
           </div>

@@ -27,8 +27,8 @@ export const DEFAULT_FILTERS: Filters = {
 };
 
 function fmtBudget(v: number) {
-  if (v >= 10000000) return `₹${(v / 10000000).toFixed(2)} Cr`;
-  return `₹${(v / 100000).toFixed(0)} L`;
+  if (v >= 10000000) return `â‚¹${(v / 10000000).toFixed(2)} Cr`;
+  return `â‚¹${(v / 100000).toFixed(0)} L`;
 }
 
 function toggle(arr: string[], value: string) {
@@ -152,7 +152,7 @@ export function PlotsFilters({
             <span>{fmtBudget(filters.budget[0])}</span>
             <span>
               {filters.budget[1] >= 12000000
-                ? "₹1 Cr+"
+                ? "â‚¹1 Cr+"
                 : fmtBudget(filters.budget[1])}
             </span>
           </div>

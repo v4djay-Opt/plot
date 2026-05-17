@@ -18,7 +18,7 @@ export default defineConfig({
             S.listItem()
               .title('Site Settings')
               .child(S.document().schemaType('siteSettings').documentId('siteSettings'))
-              .icon(() => '⚙️'),
+              .icon(() => 'âš™ï¸'),
             S.divider(),
             S.documentTypeListItem('property').title('Properties'),
             S.documentTypeListItem('blogPost').title('Blog Posts'),

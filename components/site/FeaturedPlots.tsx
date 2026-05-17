@@ -16,7 +16,7 @@ export default function FeaturedPlots() {
             Featured Residential Plots
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            RERA-approved plots from verified owners across Gurgaon, Sohna and Jajjar.
+            RERA-approved plots from verified owners across Gurgaon, Sohna and Jhajjar.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -29,7 +29,7 @@ export default function FeaturedPlots() {
             href="/plots"
             className="inline-flex items-center gap-2 font-semibold text-primary underline-offset-4 hover:underline"
           >
-            View All Plots →
+            View All Plots â†’
           </Link>
         </div>
       </div>

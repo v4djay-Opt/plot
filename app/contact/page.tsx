@@ -6,7 +6,7 @@ import { Phone, Mail, Clock } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Get in touch with Rohit Singh for verified residential plots in Gurgaon, Jajjar & beyond. Free site visits. Call 09311122787 — plotsgurgaon.in',
+    'Get in touch with Rohit Singh for verified residential plots in Gurgaon, Jhajjar & beyond. Free site visits. Call 09311122787 â€” plotsgurgaon.in',
   alternates: {
     canonical: 'https://plotsgurgaon.in/contact',
   },
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: 'https://plotsgurgaon.in/contact',
     title: 'Contact | plotsgurgaon.in',
     description:
-      'Get in touch with Rohit Singh for verified residential plots in Gurgaon, Jajjar & beyond. Free site visits. Call 09311122787 — plotsgurgaon.in',
+      'Get in touch with Rohit Singh for verified residential plots in Gurgaon, Jhajjar & beyond. Free site visits. Call 09311122787 â€” plotsgurgaon.in',
     images: [
       {
         url: '/images/hero-bg.jpg',
@@ -32,7 +32,7 @@ const contactSchema = {
   name: 'Contact PlotsGurgaon',
   url: 'https://plotsgurgaon.in/contact',
   description:
-    'Get in touch with Rohit Singh for verified residential plots in Gurgaon, Jajjar & beyond. Free site visits.',
+    'Get in touch with Rohit Singh for verified residential plots in Gurgaon, Jhajjar & beyond. Free site visits.',
   mainEntity: {
     '@type': 'RealEstateAgent',
     name: 'Plots Gurgaon',
@@ -96,7 +96,7 @@ export default function ContactPage() {
                 <Clock className="size-6" />
               </div>
               <h3 className="font-serif text-lg font-semibold text-foreground">Business Hours</h3>
-              <p className="mt-2 text-muted-foreground">Mon – Sat: 9 AM – 7 PM</p>
+              <p className="mt-2 text-muted-foreground">Mon â€“ Sat: 9 AM â€“ 7 PM</p>
             </div>
           </div>
         </div>

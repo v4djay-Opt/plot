@@ -22,7 +22,7 @@ export function BlogSection() {
               Insights & Buying Guides
             </h2>
             <p className="mt-3 max-w-xl text-muted-foreground">
-              Practical advice, market trends and RERA checks — written by
+              Practical advice, market trends and RERA checks â€” written by
               Rohit Singh.
             </p>
           </div>

@@ -6,17 +6,17 @@ import { WhatsAppFab } from "@/components/site/WhatsAppFab";
 export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: [
-      { title: "Privacy Policy — PlotsGurgaon.in" },
+      { title: "Privacy Policy â€” PlotsGurgaon.in" },
       {
         name: "description",
         content:
-          "Read how PlotsGurgaon.in collects, uses, and protects your personal information when you enquire about plots in Gurgaon, Sohna, and Jajjar.",
+          "Read how PlotsGurgaon.in collects, uses, and protects your personal information when you enquire about plots in Gurgaon, Sohna, and Jhajjar.",
       },
-      { property: "og:title", content: "Privacy Policy — PlotsGurgaon.in" },
+      { property: "og:title", content: "Privacy Policy â€” PlotsGurgaon.in" },
       {
         property: "og:description",
         content:
-          "How PlotsGurgaon.in handles your data — collection, use, sharing, and your rights.",
+          "How PlotsGurgaon.in handles your data â€” collection, use, sharing, and your rights.",
       },
     ],
   }),
@@ -64,9 +64,9 @@ function PrivacyPage() {
             <div>
               <h2 className="font-display text-2xl font-bold text-primary">2. Information We Collect</h2>
               <ul className="mt-2 list-disc space-y-1 pl-6">
-                <li>Contact details you submit — name, phone number, email.</li>
-                <li>Enquiry details — preferred location, budget, plot size.</li>
-                <li>Technical data — IP address, browser type, pages visited.</li>
+                <li>Contact details you submit â€” name, phone number, email.</li>
+                <li>Enquiry details â€” preferred location, budget, plot size.</li>
+                <li>Technical data â€” IP address, browser type, pages visited.</li>
                 <li>Cookies and similar technologies for analytics.</li>
               </ul>
             </div>

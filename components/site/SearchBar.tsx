@@ -55,7 +55,7 @@ export default function SearchBar() {
               <option value="">All locations</option>
               <option value="gurgaon">Gurgaon</option>
               <option value="sohna">Sohna</option>
-              <option value="jajjar">Jajjar</option>
+              <option value="jhajjar">Jhajjar</option>
             </select>
           </div>
           <div className="space-y-1.5">
@@ -66,8 +66,8 @@ export default function SearchBar() {
               className="h-12 w-full rounded-md border border-border bg-background px-3 text-sm text-foreground outline-none focus:border-primary focus:ring-1 focus:ring-primary"
             >
               <option value="">Any size</option>
-              <option value="100-200">100 – 200 sq yd</option>
-              <option value="200-500">200 – 500 sq yd</option>
+              <option value="100-200">100 â€“ 200 sq yd</option>
+              <option value="200-500">200 â€“ 500 sq yd</option>
               <option value="500+">500+ sq yd</option>
             </select>
           </div>
@@ -79,9 +79,9 @@ export default function SearchBar() {
               className="h-12 w-full rounded-md border border-border bg-background px-3 text-sm text-foreground outline-none focus:border-primary focus:ring-1 focus:ring-primary"
             >
               <option value="">Any budget</option>
-              <option value="under-20">Under ₹20L</option>
-              <option value="20-50">₹20L – ₹50L</option>
-              <option value="50+">₹50L+</option>
+              <option value="under-20">Under â‚¹20L</option>
+              <option value="20-50">â‚¹20L â€“ â‚¹50L</option>
+              <option value="50+">â‚¹50L+</option>
             </select>
           </div>
           <div className="flex items-end">

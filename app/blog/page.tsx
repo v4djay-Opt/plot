@@ -5,15 +5,15 @@ import { BLOG_POSTS, formatDate } from '@/components/site/blogData';
 import SchemaMarkup from '@/components/seo/SchemaMarkup';
 
 export const metadata = {
-  title: 'Blog — Plot Buying Tips, Market Insights & RERA Guides',
-  description: 'Practical guides on buying residential plots in Gurgaon, Sohna and Jajjar — RERA checks, finance, and market trends.',
+  title: 'Blog â€” Plot Buying Tips, Market Insights & RERA Guides',
+  description: 'Practical guides on buying residential plots in Gurgaon, Sohna and Jhajjar â€” RERA checks, finance, and market trends.',
   alternates: {
     canonical: 'https://plotsgurgaon.in/blog',
   },
   openGraph: {
     url: 'https://plotsgurgaon.in/blog',
-    title: 'Blog — Plot Buying Tips, Market Insights & RERA Guides | plotsgurgaon.in',
-    description: 'Practical guides on buying residential plots in Gurgaon, Sohna and Jajjar — RERA checks, finance, and market trends.',
+    title: 'Blog â€” Plot Buying Tips, Market Insights & RERA Guides | plotsgurgaon.in',
+    description: 'Practical guides on buying residential plots in Gurgaon, Sohna and Jhajjar â€” RERA checks, finance, and market trends.',
     images: [
       {
         url: '/images/hero-plot.jpg',
@@ -30,7 +30,7 @@ const blogSchema = {
   '@type': 'Blog',
   name: 'PlotsGurgaon Blog',
   url: 'https://plotsgurgaon.in/blog',
-  description: 'Practical guides on buying residential plots in Gurgaon, Sohna and Jajjar.',
+  description: 'Practical guides on buying residential plots in Gurgaon, Sohna and Jhajjar.',
   blogPost: BLOG_POSTS.map((post, i) => ({
     '@type': 'BlogPosting',
     position: i + 1,
@@ -64,8 +64,8 @@ export default function BlogPage() {
             The PlotsGurgaon Blog
           </h1>
           <p className="mt-4 max-w-2xl text-base text-white/85 md:text-lg">
-            Honest, practical advice for plot buyers — from RERA checks to
-            market trends across Gurgaon, Sohna and Jajjar.
+            Honest, practical advice for plot buyers â€” from RERA checks to
+            market trends across Gurgaon, Sohna and Jhajjar.
           </p>
         </div>
       </section>
@@ -96,7 +96,7 @@ export default function BlogPage() {
             </p>
             <div className="mt-5 flex items-center gap-3 text-xs text-muted-foreground">
               <span>{formatDate(featured.date)}</span>
-              <span>·</span>
+              <span>Â·</span>
               <span className="inline-flex items-center gap-1">
                 <Clock className="size-3.5" /> {featured.readTime}
               </span>

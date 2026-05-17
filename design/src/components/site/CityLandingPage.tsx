@@ -18,9 +18,9 @@ import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 
 type IconKey = "shield" | "trend" | "pin";
-type NearbyPath = "/plots" | "/plots-in-gurgaon" | "/plots-in-sohna" | "/plots-in-jajjar";
+type NearbyPath = "/plots" | "/plots-in-gurgaon" | "/plots-in-sohna" | "/plots-in-jhajjar";
 
-export type CitySlug = "gurgaon" | "sohna" | "jajjar";
+export type CitySlug = "gurgaon" | "sohna" | "jhajjar";
 
 type CityConfig = {
   path: Exclude<NearbyPath, "/plots">;
@@ -52,7 +52,7 @@ export const CITY_CONFIGS: Record<CitySlug, CityConfig> = {
       },
       {
         title: "High Appreciation",
-        desc: "Sectors along Dwarka Expressway have grown 18–22% YoY.",
+        desc: "Sectors along Dwarka Expressway have grown 18â€“22% YoY.",
         icon: "trend",
       },
       {
@@ -63,15 +63,15 @@ export const CITY_CONFIGS: Record<CitySlug, CityConfig> = {
     ],
     nearby: [
       { label: "Plots in Sohna", to: "/plots-in-sohna", detail: "Affordable growth corridor" },
-      { label: "Plots in Jajjar", to: "/plots-in-jajjar", detail: "Large-format residential plots" },
+      { label: "Plots in Jhajjar", to: "/plots-in-jhajjar", detail: "Large-format residential plots" },
       { label: "Plots in Sector 102", to: "/plots", detail: "Browse all current listings" },
     ],
     faqs: [
-      { q: "Which sectors in Gurgaon are best for plot investment?", a: "Sector 102, Sector 65, Sector 84 and the Dwarka Expressway belt currently offer the strongest mix of infrastructure, RERA-approved projects and 18–22% YoY appreciation." },
+      { q: "Which sectors in Gurgaon are best for plot investment?", a: "Sector 102, Sector 65, Sector 84 and the Dwarka Expressway belt currently offer the strongest mix of infrastructure, RERA-approved projects and 18â€“22% YoY appreciation." },
       { q: "Are these plots RERA registered?", a: "Yes. Every Gurgaon plot we list carries a verified HRERA registration number with clean title and approved layout." },
-      { q: "What is the price range for plots in Gurgaon?", a: "Plots typically range from ₹40 lakh in emerging sectors to ₹3+ crore in premium micro-markets along Golf Course Extension and Dwarka Expressway." },
-      { q: "Can I get a home construction loan after buying the plot?", a: "Yes. We assist with composite plot + construction loans from HDFC, SBI, ICICI and Axis Bank — usually up to 75% of plot value." },
-      { q: "How far are these plots from IGI Airport and Cyber City?", a: "Most listed Gurgaon plots are within 25–40 minutes of IGI Airport and 15–25 minutes from Cyber City via NH-48 and the Dwarka Expressway." },
+      { q: "What is the price range for plots in Gurgaon?", a: "Plots typically range from â‚¹40 lakh in emerging sectors to â‚¹3+ crore in premium micro-markets along Golf Course Extension and Dwarka Expressway." },
+      { q: "Can I get a home construction loan after buying the plot?", a: "Yes. We assist with composite plot + construction loans from HDFC, SBI, ICICI and Axis Bank â€” usually up to 75% of plot value." },
+      { q: "How far are these plots from IGI Airport and Cyber City?", a: "Most listed Gurgaon plots are within 25â€“40 minutes of IGI Airport and 15â€“25 minutes from Cyber City via NH-48 and the Dwarka Expressway." },
     ],
   },
   sohna: {
@@ -86,7 +86,7 @@ export const CITY_CONFIGS: Record<CitySlug, CityConfig> = {
     bullets: [
       {
         title: "Entry-Level Pricing",
-        desc: "Plots starting from ₹9.5 Lakh — ideal for first-time investors.",
+        desc: "Plots starting from â‚¹9.5 Lakh â€” ideal for first-time investors.",
         icon: "trend",
       },
       {
@@ -102,30 +102,30 @@ export const CITY_CONFIGS: Record<CitySlug, CityConfig> = {
     ],
     nearby: [
       { label: "Plots in Gurgaon", to: "/plots-in-gurgaon", detail: "Premium urban micro-markets" },
-      { label: "Plots in Jajjar", to: "/plots-in-jajjar", detail: "Lower entry prices, larger parcels" },
+      { label: "Plots in Jhajjar", to: "/plots-in-jhajjar", detail: "Lower entry prices, larger parcels" },
       { label: "All Plots", to: "/plots", detail: "Compare every active listing" },
     ],
     faqs: [
       { q: "Why is Sohna a good investment destination?", a: "The Sohna Elevated Corridor has cut commute to Cyber City to under 30 minutes. With Gurgaon-grade infrastructure rolling in and entry prices still low, Sohna offers strong appreciation potential." },
-      { q: "What is the starting price of plots in Sohna?", a: "Plots in Sohna start from around ₹9.5 lakh in emerging sectors, going up to ₹50 lakh in premium pockets along Sohna Road." },
+      { q: "What is the starting price of plots in Sohna?", a: "Plots in Sohna start from around â‚¹9.5 lakh in emerging sectors, going up to â‚¹50 lakh in premium pockets along Sohna Road." },
       { q: "Are Sohna plots RERA approved?", a: "Yes. All plots we list in Sohna carry valid HRERA registration along with approved layouts and clear titles." },
-      { q: "How long does it take to commute from Sohna to Gurgaon?", a: "With the new elevated corridor, the drive from Sohna to Cyber City and Golf Course Road takes roughly 30–35 minutes." },
+      { q: "How long does it take to commute from Sohna to Gurgaon?", a: "With the new elevated corridor, the drive from Sohna to Cyber City and Golf Course Road takes roughly 30â€“35 minutes." },
       { q: "Can I build a house immediately on the plot?", a: "Yes. All listed plots have approved layouts and ready possession, so you can begin construction right after registry." },
     ],
   },
-  jajjar: {
-    path: "/plots-in-jajjar",
-    name: "Jajjar",
-    matches: (loc) => /jajjar/i.test(loc),
-    sectors: ["Jajjar Highway", "Jajjar Town", "Bahadurgarh Road"],
+  jhajjar: {
+    path: "/plots-in-jhajjar",
+    name: "Jhajjar",
+    matches: (loc) => /jhajjar/i.test(loc),
+    sectors: ["Jhajjar Highway", "Jhajjar Town", "Bahadurgarh Road"],
     intro:
-      "Large residential plots in Jajjar at unbeatable per-sq-yd rates. RERA verified.",
+      "Large residential plots in Jhajjar at unbeatable per-sq-yd rates. RERA verified.",
     body:
-      "Jajjar offers the largest plot sizes in the NCR belt at the most competitive rates. With the KMP Expressway, AIIMS Jajjar, and upcoming industrial corridors driving growth, the district is rapidly transforming into a high-potential residential and investment market.",
+      "Jhajjar offers the largest plot sizes in the NCR belt at the most competitive rates. With the KMP Expressway, AIIMS Jhajjar, and upcoming industrial corridors driving growth, the district is rapidly transforming into a high-potential residential and investment market.",
     bullets: [
       {
         title: "Large Plot Sizes",
-        desc: "500–600 sq yd plots widely available.",
+        desc: "500â€“600 sq yd plots widely available.",
         icon: "pin",
       },
       {
@@ -145,11 +145,11 @@ export const CITY_CONFIGS: Record<CitySlug, CityConfig> = {
       { label: "All Plots", to: "/plots", detail: "Browse every available listing" },
     ],
     faqs: [
-      { q: "Why invest in Jajjar plots?", a: "Jajjar offers the largest plot sizes in the NCR belt at the lowest per-yard rates, with the KMP Expressway, AIIMS Jajjar and upcoming industrial corridors driving long-term growth." },
-      { q: "What plot sizes are available in Jajjar?", a: "Jajjar plots range from 200 sq yd to large 500–600 sq yd parcels, ideal for villas, farmhouses or future resale." },
-      { q: "Are Jajjar plots RERA approved?", a: "Yes. We only list Jajjar plots that carry verified HRERA registration and clean ownership documents." },
-      { q: "How is connectivity from Jajjar to Gurgaon and Delhi?", a: "Jajjar is well connected via the KMP Expressway and Bahadurgarh Road, with travel time to Gurgaon around 60–75 minutes." },
-      { q: "Is Jajjar a good location for long-term investment?", a: "Yes. With AIIMS Jajjar operational and major industrial belts coming up nearby, the district is on a strong long-term growth trajectory." },
+      { q: "Why invest in Jhajjar plots?", a: "Jhajjar offers the largest plot sizes in the NCR belt at the lowest per-yard rates, with the KMP Expressway, AIIMS Jhajjar and upcoming industrial corridors driving long-term growth." },
+      { q: "What plot sizes are available in Jhajjar?", a: "Jhajjar plots range from 200 sq yd to large 500â€“600 sq yd parcels, ideal for villas, farmhouses or future resale." },
+      { q: "Are Jhajjar plots RERA approved?", a: "Yes. We only list Jhajjar plots that carry verified HRERA registration and clean ownership documents." },
+      { q: "How is connectivity from Jhajjar to Gurgaon and Delhi?", a: "Jhajjar is well connected via the KMP Expressway and Bahadurgarh Road, with travel time to Gurgaon around 60â€“75 minutes." },
+      { q: "Is Jhajjar a good location for long-term investment?", a: "Yes. With AIIMS Jhajjar operational and major industrial belts coming up nearby, the district is on a strong long-term growth trajectory." },
     ],
   },
 };
@@ -162,7 +162,7 @@ const ICONS = {
 
 export function getCityHead(citySlug: CitySlug) {
   const city = CITY_CONFIGS[citySlug];
-  const title = `Residential Plots in ${city.name} — RERA Verified | PlotsGurgaon.in`;
+  const title = `Residential Plots in ${city.name} â€” RERA Verified | PlotsGurgaon.in`;
   const description = `${city.intro} Direct from owner with verified documents and free site visit support.`;
 
   return {

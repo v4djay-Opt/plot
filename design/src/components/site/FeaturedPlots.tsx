@@ -11,12 +11,12 @@ type Plot = {
 };
 
 const plots: Plot[] = [
-  { title: "200 Sq Yd Plot in Sector 102, Gurgaon", area: "200 sq yd", price: "₹48 L", location: "Sector 102, Gurgaon", rera: "RERA: GGM/420/152/2023", status: "Available" },
-  { title: "150 Sq Yd Plot in Sohna Road", area: "150 sq yd", price: "₹28 L", location: "Sohna Road", rera: "RERA: GGM/418/150/2023", status: "Available" },
-  { title: "300 Sq Yd Plot in Sector 95, Gurgaon", area: "300 sq yd", price: "₹72 L", location: "Sector 95, Gurgaon", rera: "RERA: GGM/421/161/2023", status: "Available" },
-  { title: "500 Sq Yd Plot in Jajjar Highway", area: "500 sq yd", price: "₹85 L", location: "Jajjar", rera: "RERA: GGM/422/172/2023", status: "Sold Out" },
-  { title: "120 Sq Yd Plot in Sohna Town", area: "120 sq yd", price: "₹18 L", location: "Sohna", rera: "RERA: GGM/417/148/2023", status: "Available" },
-  { title: "250 Sq Yd Plot in Sector 110, Gurgaon", area: "250 sq yd", price: "₹62 L", location: "Sector 110, Gurgaon", rera: "RERA: GGM/423/180/2023", status: "Available" },
+  { title: "200 Sq Yd Plot in Sector 102, Gurgaon", area: "200 sq yd", price: "â‚¹48 L", location: "Sector 102, Gurgaon", rera: "RERA: GGM/420/152/2023", status: "Available" },
+  { title: "150 Sq Yd Plot in Sohna Road", area: "150 sq yd", price: "â‚¹28 L", location: "Sohna Road", rera: "RERA: GGM/418/150/2023", status: "Available" },
+  { title: "300 Sq Yd Plot in Sector 95, Gurgaon", area: "300 sq yd", price: "â‚¹72 L", location: "Sector 95, Gurgaon", rera: "RERA: GGM/421/161/2023", status: "Available" },
+  { title: "500 Sq Yd Plot in Jhajjar Highway", area: "500 sq yd", price: "â‚¹85 L", location: "Jhajjar", rera: "RERA: GGM/422/172/2023", status: "Sold Out" },
+  { title: "120 Sq Yd Plot in Sohna Town", area: "120 sq yd", price: "â‚¹18 L", location: "Sohna", rera: "RERA: GGM/417/148/2023", status: "Available" },
+  { title: "250 Sq Yd Plot in Sector 110, Gurgaon", area: "250 sq yd", price: "â‚¹62 L", location: "Sector 110, Gurgaon", rera: "RERA: GGM/423/180/2023", status: "Available" },
 ];
 
 function PlotImage() {
@@ -54,7 +54,7 @@ export function FeaturedPlots() {
             Featured Residential Plots
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            RERA-approved plots from verified owners across Gurgaon, Sohna and Jajjar.
+            RERA-approved plots from verified owners across Gurgaon, Sohna and Jhajjar.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -111,7 +111,7 @@ export function FeaturedPlots() {
             href="#contact"
             className="inline-flex items-center gap-2 font-semibold text-primary underline-offset-4 hover:underline"
           >
-            View All Plots →
+            View All Plots â†’
           </a>
         </div>
       </div>

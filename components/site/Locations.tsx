@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 const locations = [
   { name: 'Plots in Gurgaon', count: '8 plots available', image: '/images/loc-gurgaon.jpg', href: '/plots-in-gurgaon' },
   { name: 'Plots in Sohna', count: '5 plots available', image: '/images/loc-sohna.jpg', href: '/plots-in-sohna' },
-  { name: 'Plots in Jajjar', count: '3 plots available', image: '/images/loc-jajjar.jpg', href: '/plots-in-jajjar' },
+  { name: 'Plots in Jhajjar', count: '3 plots available', image: '/images/loc-jhajjar.jpg', href: '/plots-in-jhajjar' },
   { name: 'Plots in Mathura', count: '2 plots available', image: '/images/hero-bg.jpg', href: '/plots-in-mathura' },
   { name: 'Plots in Ayodhya', count: '2 plots available', image: '/images/hero-bg.jpg', href: '/plots-in-ayodhya' },
   { name: 'Plots in Lucknow', count: '2 plots available', image: '/images/hero-bg.jpg', href: '/plots-in-lucknow' },

@@ -10,13 +10,13 @@ import heroBg from "@/assets/hero-bg.jpg";
 export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
-      { title: "Blog — Plot Buying Tips, Market Insights & RERA Guides" },
+      { title: "Blog â€” Plot Buying Tips, Market Insights & RERA Guides" },
       {
         name: "description",
         content:
-          "Practical guides on buying residential plots in Gurgaon, Sohna and Jajjar — RERA checks, finance, and market trends.",
+          "Practical guides on buying residential plots in Gurgaon, Sohna and Jhajjar â€” RERA checks, finance, and market trends.",
       },
-      { property: "og:title", content: "Blog — PlotsGurgaon" },
+      { property: "og:title", content: "Blog â€” PlotsGurgaon" },
       {
         property: "og:description",
         content:
@@ -49,8 +49,8 @@ function BlogIndex() {
               The PlotsGurgaon Blog
             </h1>
             <p className="mt-4 max-w-2xl text-base text-white/85 md:text-lg">
-              Honest, practical advice for plot buyers — from RERA checks to
-              market trends across Gurgaon, Sohna and Jajjar.
+              Honest, practical advice for plot buyers â€” from RERA checks to
+              market trends across Gurgaon, Sohna and Jhajjar.
             </p>
           </div>
         </section>
@@ -82,7 +82,7 @@ function BlogIndex() {
               </p>
               <div className="mt-5 flex items-center gap-3 text-xs text-muted-foreground">
                 <span>{featured.date}</span>
-                <span>·</span>
+                <span>Â·</span>
                 <span className="inline-flex items-center gap-1">
                   <Clock className="size-3.5" /> {featured.readTime}
                 </span>

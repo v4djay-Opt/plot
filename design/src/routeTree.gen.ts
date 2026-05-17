@@ -11,7 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PlotsInSohnaRouteImport } from './routes/plots-in-sohna'
-import { Route as PlotsInJajjarRouteImport } from './routes/plots-in-jajjar'
+import { Route as PlotsInJhajjarRouteImport } from './routes/plots-in-jhajjar'
 import { Route as PlotsInGurgaonRouteImport } from './routes/plots-in-gurgaon'
 import { Route as PlotsRouteImport } from './routes/plots'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -32,9 +32,9 @@ const PlotsInSohnaRoute = PlotsInSohnaRouteImport.update({
   path: '/plots-in-sohna',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PlotsInJajjarRoute = PlotsInJajjarRouteImport.update({
-  id: '/plots-in-jajjar',
-  path: '/plots-in-jajjar',
+const PlotsInJhajjarRoute = PlotsInJhajjarRouteImport.update({
+  id: '/plots-in-jhajjar',
+  path: '/plots-in-jhajjar',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlotsInGurgaonRoute = PlotsInGurgaonRouteImport.update({
@@ -89,7 +89,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/plots': typeof PlotsRouteWithChildren
   '/plots-in-gurgaon': typeof PlotsInGurgaonRoute
-  '/plots-in-jajjar': typeof PlotsInJajjarRoute
+  '/plots-in-jhajjar': typeof PlotsInJhajjarRoute
   '/plots-in-sohna': typeof PlotsInSohnaRoute
   '/privacy': typeof PrivacyRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -102,7 +102,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/plots-in-gurgaon': typeof PlotsInGurgaonRoute
-  '/plots-in-jajjar': typeof PlotsInJajjarRoute
+  '/plots-in-jhajjar': typeof PlotsInJhajjarRoute
   '/plots-in-sohna': typeof PlotsInSohnaRoute
   '/privacy': typeof PrivacyRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -117,7 +117,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/plots': typeof PlotsRouteWithChildren
   '/plots-in-gurgaon': typeof PlotsInGurgaonRoute
-  '/plots-in-jajjar': typeof PlotsInJajjarRoute
+  '/plots-in-jhajjar': typeof PlotsInJhajjarRoute
   '/plots-in-sohna': typeof PlotsInSohnaRoute
   '/privacy': typeof PrivacyRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -133,7 +133,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/plots'
     | '/plots-in-gurgaon'
-    | '/plots-in-jajjar'
+    | '/plots-in-jhajjar'
     | '/plots-in-sohna'
     | '/privacy'
     | '/blog/$slug'
@@ -146,7 +146,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/plots-in-gurgaon'
-    | '/plots-in-jajjar'
+    | '/plots-in-jhajjar'
     | '/plots-in-sohna'
     | '/privacy'
     | '/blog/$slug'
@@ -160,7 +160,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/plots'
     | '/plots-in-gurgaon'
-    | '/plots-in-jajjar'
+    | '/plots-in-jhajjar'
     | '/plots-in-sohna'
     | '/privacy'
     | '/blog/$slug'
@@ -175,7 +175,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   PlotsRoute: typeof PlotsRouteWithChildren
   PlotsInGurgaonRoute: typeof PlotsInGurgaonRoute
-  PlotsInJajjarRoute: typeof PlotsInJajjarRoute
+  PlotsInJhajjarRoute: typeof PlotsInJhajjarRoute
   PlotsInSohnaRoute: typeof PlotsInSohnaRoute
   PrivacyRoute: typeof PrivacyRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -198,11 +198,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlotsInSohnaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/plots-in-jajjar': {
-      id: '/plots-in-jajjar'
-      path: '/plots-in-jajjar'
-      fullPath: '/plots-in-jajjar'
-      preLoaderRoute: typeof PlotsInJajjarRouteImport
+    '/plots-in-jhajjar': {
+      id: '/plots-in-jhajjar'
+      path: '/plots-in-jhajjar'
+      fullPath: '/plots-in-jhajjar'
+      preLoaderRoute: typeof PlotsInJhajjarRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/plots-in-gurgaon': {
@@ -289,7 +289,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   PlotsRoute: PlotsRouteWithChildren,
   PlotsInGurgaonRoute: PlotsInGurgaonRoute,
-  PlotsInJajjarRoute: PlotsInJajjarRoute,
+  PlotsInJhajjarRoute: PlotsInJhajjarRoute,
   PlotsInSohnaRoute: PlotsInSohnaRoute,
   PrivacyRoute: PrivacyRoute,
   BlogSlugRoute: BlogSlugRoute,

@@ -78,7 +78,7 @@ export function LeadCapture() {
                 <SelectContent>
                   <SelectItem value="gurgaon">Gurgaon</SelectItem>
                   <SelectItem value="sohna">Sohna</SelectItem>
-                  <SelectItem value="jajjar">Jajjar</SelectItem>
+                  <SelectItem value="jhajjar">Jhajjar</SelectItem>
                   <SelectItem value="any">Open to suggestions</SelectItem>
                 </SelectContent>
               </Select>
@@ -88,7 +88,7 @@ export function LeadCapture() {
               disabled={submitting}
               className="h-12 w-full rounded-md bg-accent text-base font-semibold text-accent-foreground hover:bg-accent/90"
             >
-              {submitting ? "Sending…" : "Request Callback"}
+              {submitting ? "Sendingâ€¦" : "Request Callback"}
             </Button>
           </div>
         </form>

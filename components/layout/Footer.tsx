@@ -12,7 +12,7 @@ const navLinks = [
 const cityLinks = [
   { label: 'Plots in Gurgaon', href: '/plots-in-gurgaon' },
   { label: 'Plots in Sohna', href: '/plots-in-sohna' },
-  { label: 'Plots in Jajjar', href: '/plots-in-jajjar' },
+  { label: 'Plots in Jhajjar', href: '/plots-in-jhajjar' },
   { label: 'Plots in Mathura', href: '/plots-in-mathura' },
   { label: 'Plots in Gorakhpur', href: '/plots-in-gorakhpur' },
   { label: 'Plots in Ayodhya', href: '/plots-in-ayodhya' },
@@ -30,7 +30,7 @@ export default function Footer() {
               Ready to find your perfect plot?
             </h3>
             <p className="mt-1.5 text-sm text-primary-foreground/70">
-              Speak with Rohit Singh — typical reply within 2 hours.
+              Speak with Rohit Singh â€” typical reply within 2 hours.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
@@ -65,7 +65,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-primary-foreground/70">
-              Hand-picked residential plots across Gurgaon, Sohna and Jajjar — at the
+              Hand-picked residential plots across Gurgaon, Sohna and Jhajjar â€” at the
               best prices, with verified titles and free site visits.
             </p>
             <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary-foreground/15 bg-primary-foreground/5 px-3 py-1.5 text-xs font-medium tracking-wide text-primary-foreground/80">
@@ -112,7 +112,7 @@ export default function Footer() {
               <li>
                 <a href="tel:+919311122787" className="inline-flex items-start gap-2.5 transition hover:text-secondary">
                   <Phone className="mt-0.5 size-4 text-secondary" />
-                  <span>+91 93111 22787<br /><span className="text-xs text-primary-foreground/55">Rohit Singh · Sr. Consultant</span></span>
+                  <span>+91 93111 22787<br /><span className="text-xs text-primary-foreground/55">Rohit Singh Â· Sr. Consultant</span></span>
                 </a>
               </li>
               <li>
@@ -132,7 +132,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-primary-foreground/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-5 text-xs text-primary-foreground/60 md:flex-row md:px-6">
-          <p>© 2025 PlotsGurgaon.in — All rights reserved.</p>
+          <p>Â© 2025 PlotsGurgaon.in â€” All rights reserved.</p>
           <p>
             Design and developed by{" "}
             <a

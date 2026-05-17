@@ -10,23 +10,23 @@ import LeadCapture from '@/components/site/LeadCapture';
 import SchemaMarkup from '@/components/seo/SchemaMarkup';
 
 export const metadata: Metadata = {
-  title: 'Residential Plots in Gurgaon & Jajjar',
+  title: 'Residential Plots in Gurgaon & Jhajjar',
   description:
-    'Verified residential plots in Gurgaon (₹1Cr+) & Jajjar (under ₹50L). Investors & homebuyers welcome. DTCP/RERA options. Call 09311122787 — plotsgurgaon.in',
+    'Verified residential plots in Gurgaon (â‚¹1Cr+) & Jhajjar (under â‚¹50L). Investors & homebuyers welcome. DTCP/RERA options. Call 09311122787 â€” plotsgurgaon.in',
   alternates: {
     canonical: 'https://plotsgurgaon.in',
   },
   openGraph: {
     url: 'https://plotsgurgaon.in',
-    title: 'Residential Plots in Gurgaon & Jajjar | plotsgurgaon.in',
+    title: 'Residential Plots in Gurgaon & Jhajjar | plotsgurgaon.in',
     description:
-      'Verified residential plots in Gurgaon (₹1Cr+) & Jajjar (under ₹50L). Investors & homebuyers welcome. DTCP/RERA options. Call 09311122787 — plotsgurgaon.in',
+      'Verified residential plots in Gurgaon (â‚¹1Cr+) & Jhajjar (under â‚¹50L). Investors & homebuyers welcome. DTCP/RERA options. Call 09311122787 â€” plotsgurgaon.in',
     images: [
       {
         url: '/images/hero-bg.jpg',
         width: 1200,
         height: 630,
-        alt: 'Verified residential plots in Gurgaon and Jajjar',
+        alt: 'Verified residential plots in Gurgaon and Jhajjar',
       },
     ],
   },
@@ -40,7 +40,7 @@ const homeSchema = {
       name: 'Plots Gurgaon',
       url: 'https://plotsgurgaon.in',
       telephone: '+91-9311122787',
-      priceRange: '₹50L - ₹1Cr+',
+      priceRange: 'â‚¹50L - â‚¹1Cr+',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Gurugram',
@@ -49,7 +49,7 @@ const homeSchema = {
       },
       areaServed: ['Gurugram', 'Jhajjar', 'Sohna', 'Ayodhya', 'Lucknow', 'Mathura', 'Gorakhpur'],
       description:
-        'Verified residential plots in Gurgaon (₹1Cr+) and Jajjar (under ₹50L) for investors and homebuyers.',
+        'Verified residential plots in Gurgaon (â‚¹1Cr+) and Jhajjar (under â‚¹50L) for investors and homebuyers.',
     },
     {
       '@type': 'FAQPage',
@@ -59,15 +59,15 @@ const homeSchema = {
           name: 'What is the price of residential plots in Gurgaon?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Residential plots in Gurgaon start from ₹1 Crore for 200 sq yd depending on sector.',
+            text: 'Residential plots in Gurgaon start from â‚¹1 Crore for 200 sq yd depending on sector.',
           },
         },
         {
           '@type': 'Question',
-          name: 'Are plots in Jajjar under 50 lakh a good investment?',
+          name: 'Are plots in Jhajjar under 50 lakh a good investment?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. Jajjar plots under ₹50L are high-potential investments near KMP Expressway and Reliance MET City.',
+            text: 'Yes. Jhajjar plots under â‚¹50L are high-potential investments near KMP Expressway and Reliance MET City.',
           },
         },
       ],

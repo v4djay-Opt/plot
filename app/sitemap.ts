@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
     { url: `${baseUrl}/plots`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/plots-in-gurgaon`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${baseUrl}/plots-in-jajjar`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/plots-in-jhajjar`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/plots-in-sohna`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/plots-in-ayodhya`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/plots-in-mathura`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },

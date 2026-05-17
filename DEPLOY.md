@@ -1,4 +1,4 @@
-# Hostinger VPS Deployment Guide — PlotsGurgaon
+# Hostinger VPS Deployment Guide â€” PlotsGurgaon
 
 > Next.js 14 App Router + Sanity v3 + Hostinger VPS
 
@@ -20,13 +20,13 @@
 
 ## 1. VPS One-Time Setup
 
-### Step 1.1 — SSH into your Hostinger VPS
+### Step 1.1 â€” SSH into your Hostinger VPS
 
 ```bash
 ssh root@YOUR_VPS_IP
 ```
 
-### Step 1.2 — Run the automated setup script
+### Step 1.2 â€” Run the automated setup script
 
 ```bash
 # Upload .deploy/setup-vps.sh to your VPS, then:
@@ -36,7 +36,7 @@ chmod +x setup-vps.sh
 
 This installs: **Node.js 20, Nginx, PM2, Certbot, Fail2ban, UFW**, creates directories, and sets up a bare Git repo.
 
-### Step 1.3 — Add your SSH key (CRITICAL)
+### Step 1.3 â€” Add your SSH key (CRITICAL)
 
 On your **local machine**, copy your public key:
 
@@ -68,7 +68,7 @@ systemctl restart sshd
 
 The setup script already wrote SSH hardening config to `/etc/ssh/sshd_config.d/hardening.conf`.
 
-### Step 1.4 — Copy config files
+### Step 1.4 â€” Copy config files
 
 From your local machine:
 
@@ -143,7 +143,7 @@ chown www-data:www-data /var/www/plotsgurgaon/.env.production
 
 ### How PM2 reads env
 
-PM2 uses `ecosystem.config.js`. During build, Next.js reads `.env.production` automatically. PM2 process inherits system env. The post-receive hook copies nothing special — Next.js picks up `.env.production` at build time.
+PM2 uses `ecosystem.config.js`. During build, Next.js reads `.env.production` automatically. PM2 process inherits system env. The post-receive hook copies nothing special â€” Next.js picks up `.env.production` at build time.
 
 ---
 
@@ -153,7 +153,7 @@ PM2 uses `ecosystem.config.js`. During build, Next.js reads `.env.production` au
 
 **Why bare repo?** Faster, works offline, auto-builds on push via hook.
 
-#### Local machine — add production remote:
+#### Local machine â€” add production remote:
 
 ```bash
 git remote add production root@YOUR_VPS_IP:/var/repo/plotsgurgaon.git
@@ -188,7 +188,7 @@ git clone https://github.com/v4djay-Opt/plot.git .
 
 ## 4. SSL (Let's Encrypt)
 
-### Step 4.1 — Get certificate
+### Step 4.1 â€” Get certificate
 
 ```bash
 certbot --nginx -d plotsgurgaon.in -d www.plotsgurgaon.in
@@ -196,7 +196,7 @@ certbot --nginx -d plotsgurgaon.in -d www.plotsgurgaon.in
 
 Follow prompts. Certbot auto-updates your Nginx config.
 
-### Step 4.2 — Auto-renewal
+### Step 4.2 â€” Auto-renewal
 
 Certbot installs a systemd timer. Verify:
 
@@ -238,7 +238,7 @@ fail2ban-client status sshd
 
 ### 5.3 Sanity CORS
 
-In Sanity dashboard → API → CORS Origins, add:
+In Sanity dashboard â†’ API â†’ CORS Origins, add:
 
 ```
 https://plotsgurgaon.in
@@ -247,7 +247,7 @@ https://www.plotsgurgaon.in
 
 Remove `localhost` and `*` from production dataset.
 
-### 5.4 Nginx — hide server version
+### 5.4 Nginx â€” hide server version
 
 Already in config: `server_tokens off;`
 
@@ -343,7 +343,7 @@ ssh root@YOUR_VPS_IP "pm2 logs plotsgurgaon --lines 100"
 
 Before every production push, verify:
 
-- [ ] **No secrets in Git**: `git log --all --oneline | grep -i token` → should be empty
+- [ ] **No secrets in Git**: `git log --all --oneline | grep -i token` â†’ should be empty
 - [ ] **Build passes locally**: `npm run build` completes with 0 errors
 - [ ] **.env.production exists on VPS** with correct values
 - [ ] **Sanity dataset = "production"** (not development)
@@ -378,7 +378,7 @@ systemctl status nginx
 ### Build fails on VPS
 
 ```bash
-# Usually out of memory — add swap:
+# Usually out of memory â€” add swap:
 fallocate -l 2G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
