@@ -17,7 +17,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt:
       "Sectors, price trends, RERA checks and what to verify before booking — a practical playbook for first-time plot buyers in Gurgaon.",
     category: "Buying Guide",
-    date: "May 8, 2026",
+    date: "2026-05-08",
     readTime: "6 min read",
     author: "Rohit Singh",
     cover:
@@ -35,7 +35,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt:
       "Both micro-markets are heating up. We compare connectivity, price points, and the kind of buyer each one suits best.",
     category: "Market Insights",
-    date: "Apr 22, 2026",
+    date: "2026-04-22",
     readTime: "5 min read",
     author: "Rohit Singh",
     cover:
@@ -52,7 +52,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt:
       "Seven checks you can do in 30 minutes that will save you from the most common plot-buying mistakes.",
     category: "Legal & RERA",
-    date: "Mar 14, 2026",
+    date: "2026-03-14",
     readTime: "4 min read",
     author: "Rohit Singh",
     cover:
@@ -70,7 +70,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt:
       "Interest rates, tenure, tax benefits and LTV — the practical differences buyers should know before applying.",
     category: "Finance",
-    date: "Feb 26, 2026",
+    date: "2026-02-26",
     readTime: "5 min read",
     author: "Rohit Singh",
     cover:
@@ -87,7 +87,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt:
       "Skip the small talk. These ten questions will tell you in 15 minutes whether a plot is worth pursuing.",
     category: "Buying Guide",
-    date: "Jan 30, 2026",
+    date: "2026-01-30",
     readTime: "4 min read",
     author: "Rohit Singh",
     cover:
@@ -104,7 +104,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt:
       "Premiums explained — when paying extra makes financial sense and when it's purely emotional.",
     category: "Market Insights",
-    date: "Jan 12, 2026",
+    date: "2026-01-12",
     readTime: "3 min read",
     author: "Rohit Singh",
     cover:
@@ -119,4 +119,12 @@ export const BLOG_POSTS: BlogPost[] = [
 
 export function getPost(slug: string) {
   return BLOG_POSTS.find((p) => p.slug === slug);
+}
+
+export function formatDate(iso: string): string {
+  return new Date(iso).toLocaleDateString('en-IN', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
 }

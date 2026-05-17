@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight, Clock } from 'lucide-react';
 import FAQ from '@/components/site/FAQ';
-import { BLOG_POSTS } from '@/components/site/blogData';
+import { BLOG_POSTS, formatDate } from '@/components/site/blogData';
 import SchemaMarkup from '@/components/seo/SchemaMarkup';
 
 export const metadata = {
@@ -95,7 +95,7 @@ export default function BlogPage() {
               {featured.excerpt}
             </p>
             <div className="mt-5 flex items-center gap-3 text-xs text-muted-foreground">
-              <span>{featured.date}</span>
+              <span>{formatDate(featured.date)}</span>
               <span>·</span>
               <span className="inline-flex items-center gap-1">
                 <Clock className="size-3.5" /> {featured.readTime}
@@ -134,7 +134,7 @@ export default function BlogPage() {
                   {p.excerpt}
                 </p>
                 <div className="mt-auto flex items-center justify-between pt-5 text-xs text-muted-foreground">
-                  <span>{p.date}</span>
+                  <span>{formatDate(p.date)}</span>
                   <span className="inline-flex items-center gap-1">
                     <Clock className="size-3.5" /> {p.readTime}
                   </span>

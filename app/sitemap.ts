@@ -1,4 +1,6 @@
 import type { MetadataRoute } from 'next';
+import { BLOG_POSTS } from '@/components/site/blogData';
+import { allPlots, slugify } from '@/lib/plots';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://plotsgurgaon.in';
@@ -18,5 +20,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
   ];
 
-  return routes;
+  const blogRoutes: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
+  const plotRoutes: MetadataRoute.Sitemap = allPlots.map((plot) => ({
+    url: `${baseUrl}/plots/${slugify(plot.title)}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }));
+
+  return [...routes, ...blogRoutes, ...plotRoutes];
 }

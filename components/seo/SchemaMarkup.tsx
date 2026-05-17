@@ -1,5 +1,3 @@
-"use client";
-
 interface SchemaMarkupProps {
   schema: Record<string, unknown> | Record<string, unknown>[];
 }

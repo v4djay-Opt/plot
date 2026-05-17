@@ -7,14 +7,33 @@ export default function LeadCapture() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const [error, setError] = useState('');
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+    setError('');
+
+    const data = new FormData(e.currentTarget);
+    try {
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.get('name'),
+          phone: data.get('phone'),
+          location: data.get('location'),
+          source: 'Homepage Lead Form',
+        }),
+      });
+      if (!res.ok) throw new Error();
       setSubmitted(true);
       (e.target as HTMLFormElement).reset();
-    }, 800);
+    } catch {
+      setError('Failed to send. Please WhatsApp us directly.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -53,6 +72,9 @@ export default function LeadCapture() {
             </div>
           ) : (
             <div className="space-y-4">
+              {error && (
+                <p className="rounded-md bg-red-50 p-3 text-sm text-red-600">{error}</p>
+              )}
               <div>
                 <label className="text-sm font-medium" htmlFor="name">Name</label>
                 <input id="name" name="name" placeholder="Your full name" required className="mt-1.5 h-11 w-full rounded-md border border-border bg-background px-3 text-sm text-foreground outline-none focus:border-primary focus:ring-1 focus:ring-primary" />

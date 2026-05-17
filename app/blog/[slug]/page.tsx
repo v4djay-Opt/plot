@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { ArrowLeft, Calendar, Clock, User } from 'lucide-react';
 import FAQ from '@/components/site/FAQ';
 import SchemaMarkup from '@/components/seo/SchemaMarkup';
-import { BLOG_POSTS, getPost } from '@/components/site/blogData';
+import { BLOG_POSTS, getPost, formatDate } from '@/components/site/blogData';
 
 export function generateStaticParams() {
   return BLOG_POSTS.map((p) => ({ slug: p.slug }));
@@ -89,7 +89,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 <User className="size-4" /> {post.author}
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <Calendar className="size-4" /> {post.date}
+                <Calendar className="size-4" /> {formatDate(post.date)}
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <Clock className="size-4" /> {post.readTime}
@@ -149,7 +149,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                     {p.title}
                   </h3>
                   <span className="mt-auto pt-4 text-xs text-muted-foreground">
-                    {p.date} · {p.readTime}
+                    {formatDate(p.date)} · {p.readTime}
                   </span>
                 </div>
               </Link>
