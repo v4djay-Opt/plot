@@ -25,7 +25,7 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/plots-in-jhajjar',
+        source: '/plots-in-jajjar',
         destination: '/plots-in-jhajjar',
         permanent: true,
       },
