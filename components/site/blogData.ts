@@ -122,9 +122,10 @@ export function getPost(slug: string) {
 }
 
 export function formatDate(iso: string): string {
-  return new Date(iso).toLocaleDateString('en-IN', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
+  const d = new Date(iso);
+  const months = [
+    'January','February','March','April','May','June',
+    'July','August','September','October','November','December'
+  ];
+  return `${d.getDate()} ${months[d.getMonth()]}, ${d.getFullYear()}`;
 }

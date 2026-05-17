@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight, ArrowLeft, Clock } from 'lucide-react';
-import { BLOG_POSTS } from './blogData';
+import { BLOG_POSTS, formatDate } from './blogData';
 
 const ITEMS_PER_PAGE = 3;
 
@@ -85,7 +85,7 @@ export default function BlogSection() {
                   {p.excerpt}
                 </p>
                 <div className="mt-auto flex items-center justify-between pt-5 text-xs text-muted-foreground">
-                  <span>{p.date}</span>
+                  <span>{formatDate(p.date)}</span>
                   <span className="inline-flex items-center gap-1">
                     <Clock className="size-3.5" /> {p.readTime}
                   </span>
