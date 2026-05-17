@@ -8,7 +8,7 @@ Generated from `seo-implementation-plan-7369ea.md`
 
 | # | Task | Status | Files |
 |---|------|--------|-------|
-| 1.1 | **Schema Markup — JSON-LD Components** | **Done** | `CityLandingPage.tsx` already has `RealEstateListing`, `FAQPage`, `BreadcrumbList`. Homepage has `RealEstateAgent` + `FAQPage`. Locations has `ItemList`. |
+| 1.1 | **Schema Markup — JSON-LD Components** | **Done** | All pages now have schema: Homepage (`RealEstateAgent` + `FAQPage`), 7 city pages (`RealEstateListing` + `FAQPage` + `BreadcrumbList`), Locations (`ItemList`), Plots (`ItemList` + `BreadcrumbList`), Blog (`Blog`), Blog posts (`BlogPosting` + `BreadcrumbList`), Contact (`ContactPage` + `RealEstateAgent`). |
 | 1.2 | **Per-Page Metadata Overrides** | **Done** | Metadata + canonical added to all pages: `/`, all `/plots-in-*` (7), `/locations`, `/blog`, `/contact`, `/plots` |
 | 1.3 | **H1 Alignment with Strategy** | **Done** | Updated `CITY_CONFIGS` H1s for mathura, gorakhpur, lucknow to match strategy |
 
@@ -45,10 +45,11 @@ Generated from `seo-implementation-plan-7369ea.md`
 
 | # | Task | Priority | Notes |
 |---|------|----------|-------|
-| 1 | **OG Images** | Low | Create 1200×630 images for homepage, city pages, blog posts. Then add `openGraph.images` to metadata. |
+| 1 | **OG Images** | Low | Create 1200×630 branded images for homepage, city pages, blog posts. Current images exist but are generic. |
 | 2 | **Directory Listings** | High | Manual task — ensure exact same NAP across all directories |
 | 3 | **Blog Content (5 articles)** | High | Write and publish from the strategy's 15 ideas |
-| 4 | **Plots page metadata** | Done | Refactored `plots/page.tsx` to server component with metadata; extracted `PlotsClient.tsx` |
+| 4 | **Schema markup** | **Done** | All 11 pages now have JSON-LD schema |
+| 5 | **Plots page metadata** | **Done** | Refactored `plots/page.tsx` to server component with metadata; extracted `PlotsClient.tsx` |
 
 ---
 
