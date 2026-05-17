@@ -287,3 +287,70 @@ export const getAllMicroLocationSlugs = groq`
     "citySlug": parentCity->slug.current
   }
 `;
+
+// Blog post queries
+export const getAllBlogPosts = groq`
+  *[_type == "blogPost"] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    excerpt,
+    coverImage {
+      asset->{_ref, url},
+      alt
+    },
+    category,
+    author,
+    readTime,
+    isFeatured,
+    publishedAt,
+    "contentText": pt::text(content),
+    seoTitle,
+    seoDescription
+  }
+`;
+
+export const getFeaturedBlogPosts = groq`
+  *[_type == "blogPost" && isFeatured == true] | order(publishedAt desc) [0...6] {
+    _id,
+    title,
+    slug,
+    excerpt,
+    coverImage {
+      asset->{_ref, url},
+      alt
+    },
+    category,
+    author,
+    readTime,
+    publishedAt
+  }
+`;
+
+export const getBlogPostBySlug = groq`
+  *[_type == "blogPost" && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    excerpt,
+    coverImage {
+      asset->{_ref, url},
+      alt
+    },
+    content,
+    "contentText": pt::text(content),
+    category,
+    author,
+    readTime,
+    isFeatured,
+    publishedAt,
+    seoTitle,
+    seoDescription
+  }
+`;
+
+export const getAllBlogSlugs = groq`
+  *[_type == "blogPost"] {
+    "slug": slug.current
+  }
+`;
