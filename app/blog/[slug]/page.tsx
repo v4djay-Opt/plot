@@ -14,10 +14,21 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   return {
     title: `${post.title} — PlotsGurgaon Blog`,
     description: post.excerpt,
+    alternates: {
+      canonical: `https://plotsgurgaon.in/blog/${post.slug}`,
+    },
     openGraph: {
+      url: `https://plotsgurgaon.in/blog/${post.slug}`,
       title: post.title,
       description: post.excerpt,
-      images: [post.cover],
+      images: [
+        {
+          url: post.cover,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
       type: 'article',
     },
   };

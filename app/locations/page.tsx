@@ -11,6 +11,10 @@ export const metadata: Metadata = {
     canonical: 'https://plotsgurgaon.in/locations',
   },
   openGraph: {
+    url: 'https://plotsgurgaon.in/locations',
+    title: 'All Plot Locations | Haryana & UP Residential Plots | plotsgurgaon.in',
+    description:
+      'Find verified residential plots across Gurgaon, Jajjar, Sohna, Ayodhya, Mathura, Lucknow, Gorakhpur. All price ranges. Call 09311122787 — plotsgurgaon.in',
     images: [
       {
         url: '/images/hero-plot.jpg',

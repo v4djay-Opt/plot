@@ -6,7 +6,13 @@ import { BLOG_POSTS } from '@/components/site/blogData';
 export const metadata = {
   title: 'Blog — Plot Buying Tips, Market Insights & RERA Guides',
   description: 'Practical guides on buying residential plots in Gurgaon, Sohna and Jajjar — RERA checks, finance, and market trends.',
+  alternates: {
+    canonical: 'https://plotsgurgaon.in/blog',
+  },
   openGraph: {
+    url: 'https://plotsgurgaon.in/blog',
+    title: 'Blog — Plot Buying Tips, Market Insights & RERA Guides | plotsgurgaon.in',
+    description: 'Practical guides on buying residential plots in Gurgaon, Sohna and Jajjar — RERA checks, finance, and market trends.',
     images: [
       {
         url: '/images/hero-plot.jpg',

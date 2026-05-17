@@ -10,6 +10,10 @@ export const metadata: Metadata = {
     canonical: 'https://plotsgurgaon.in/contact',
   },
   openGraph: {
+    url: 'https://plotsgurgaon.in/contact',
+    title: 'Contact | plotsgurgaon.in',
+    description:
+      'Get in touch with Rohit Singh for verified residential plots in Gurgaon, Jajjar & beyond. Free site visits. Call 09311122787 — plotsgurgaon.in',
     images: [
       {
         url: '/images/hero-bg.jpg',
