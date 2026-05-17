@@ -1,4 +1,4 @@
-# Final SEO & Health Audit â€” plotsgurgaon.in
+# Final SEO & Health Audit "” plotsgurgaon.in
 
 **Audit date:** 17 May 2026
 **Audited by:** Cascade (Windsurf)
@@ -19,7 +19,7 @@
 | Accessibility / a11y | **8.5 / 10** | Most images have alt; some decorative `<img>` lack `aria-hidden`. |
 | Code health / DRY | **9 / 10** | Plot data centralized in `lib/plots.ts`; single source of truth. |
 
-**Overall: 9.7 / 10 â€” All critical and medium issues resolved.**
+**Overall: 9.7 / 10 "” All critical and medium issues resolved.**
 
 ---
 
@@ -50,7 +50,7 @@ All 14 public routes crawled. **Zero 500 errors. Zero unexpected 404 errors.**
 | `/sitemap.xml` | 200 | |
 | `/robots.txt` | 200 | |
 | `/404test` (non-existent) | 404 | Correct |
-| `/studio` | 404 | Sanity Studio not mounted as a Next.js route (no link points to it â€” non-issue) |
+| `/studio` | 404 | Sanity Studio not mounted as a Next.js route (no link points to it "” non-issue) |
 
 ---
 
@@ -62,12 +62,12 @@ All 14 public routes crawled. **Zero 500 errors. Zero unexpected 404 errors.**
 
 | FeaturedPlots title | Clicks lead to |
 |--------------------|----------------|
-| 200 Sq Yd â€¦ Sector 102, Gurgaon | âœ… 200 |
-| 150 Sq Yd â€¦ Sohna Road | âœ… 200 |
-| **300 Sq Yd â€¦ Sector 95, Gurgaon** | âŒ **404** |
-| 500 Sq Yd â€¦ Jhajjar Highway | âœ… 200 |
-| 120 Sq Yd â€¦ Sohna Town | âœ… 200 |
-| **250 Sq Yd â€¦ Sector 110, Gurgaon** | âŒ **404** |
+| 200 Sq Yd "¦ Sector 102, Gurgaon | âœ… 200 |
+| 150 Sq Yd "¦ Sohna Road | âœ… 200 |
+| **300 Sq Yd "¦ Sector 95, Gurgaon** | âŒ **404** |
+| 500 Sq Yd "¦ Jhajjar Highway | âœ… 200 |
+| 120 Sq Yd "¦ Sohna Town | âœ… 200 |
+| **250 Sq Yd "¦ Sector 110, Gurgaon** | âŒ **404** |
 
 **Root cause:** Plot data is hard-coded and duplicated in **three** files with drift:
 - `components/site/FeaturedPlots.tsx` (6 plots)
@@ -78,7 +78,7 @@ All 14 public routes crawled. **Zero 500 errors. Zero unexpected 404 errors.**
 
 ### 3.2 [HIGH] Plot Detail Page Has Zero Metadata
 
-`@/Applications/XAMPP/xamppfiles/htdocs/plotnext/plotsgurgaon/app/plots/[slug]/page.tsx:1` is `'use client'` â€” Next.js does **not** allow `metadata` or `generateMetadata` exports in client components.
+`@/Applications/XAMPP/xamppfiles/htdocs/plotnext/plotsgurgaon/app/plots/[slug]/page.tsx:1` is `'use client'` "” Next.js does **not** allow `metadata` or `generateMetadata` exports in client components.
 
 **Impact:**
 - No unique `<title>` per plot â†’ all plot pages inherit homepage title
@@ -100,7 +100,7 @@ All 14 public routes crawled. **Zero 500 errors. Zero unexpected 404 errors.**
 
 ### 4.2 [MED] Sitemap Missing Plot Detail Pages
 
-Same file â€” `/plots/[slug]` for all 12 plots not in sitemap, so Google may take longer to discover them.
+Same file "” `/plots/[slug]` for all 12 plots not in sitemap, so Google may take longer to discover them.
 
 ### 4.3 [MED] Blog Images Not Optimized
 
@@ -110,7 +110,7 @@ Same file â€” `/plots/[slug]` for all 12 plots not in sitemap, so Google ma
 
 ### 4.4 [MED] Empty API Route Stubs
 
-`app/api/lead/` and `app/api/draft-mode/{enable,disable}/` are **empty directories** (no `route.ts`). They don't cause errors today because nothing fetches them â€” `LeadCapture.tsx` uses a fake `setTimeout` to simulate submission. But:
+`app/api/lead/` and `app/api/draft-mode/{enable,disable}/` are **empty directories** (no `route.ts`). They don't cause errors today because nothing fetches them "” `LeadCapture.tsx` uses a fake `setTimeout` to simulate submission. But:
 - Lead form **does not actually send leads anywhere** â†’ critical for the business
 - Sanity draft-mode preview routes never wired up
 
@@ -127,19 +127,19 @@ All `openGraph.images` point to `/images/hero-bg.jpg`, `/images/hero-plot.jpg`, 
 | # | Issue | Fix |
 |---|-------|-----|
 | 5.1 | `<img>` tags throughout (Hero, city pages) instead of `next/image` | Migrate for LCP improvements |
-| 5.2 | Lighthouse: no `<link rel="preload">` for hero font | Already using `next/font` â€” good |
+| 5.2 | Lighthouse: no `<link rel="preload">` for hero font | Already using `next/font` "” good |
 | 5.3 | No `theme-color` meta or PWA manifest | Optional; add for mobile polish |
-| 5.4 | `next.config.mjs` `compress: false` | Correct â€” relies on Nginx, but verify nginx config is deployed |
+| 5.4 | `next.config.mjs` `compress: false` | Correct "” relies on Nginx, but verify nginx config is deployed |
 | 5.5 | No `sitemap-index.xml` for >50k URLs | Not needed at current scale |
 | 5.6 | Blog dates are strings (`"May 8, 2026"`) not ISO | Schema `datePublished` should be ISO 8601 (`"2026-05-08"`) |
-| 5.7 | Some lucide icons imported but unused | Tree-shaken at build â€” no runtime impact |
+| 5.7 | Some lucide icons imported but unused | Tree-shaken at build "” no runtime impact |
 
 ---
 
 ## 6. SEO Strengths (What's Working Well)
 
 âœ… **Per-page `metadata` exports** on 13/14 pages with `title`, `description`, `canonical`, full `openGraph` object
-âœ… **`metadataBase: new URL('https://plotsgurgaon.in')`** in root layout â€” correct absolute URLs
+âœ… **`metadataBase: new URL('https://plotsgurgaon.in')`** in root layout "” correct absolute URLs
 âœ… **Schema markup coverage:**
    - Homepage: `RealEstateAgent` + `FAQPage`
    - 7 city pages: `RealEstateListing` + `FAQPage` + `BreadcrumbList`
@@ -172,7 +172,7 @@ All `openGraph.images` point to `/images/hero-bg.jpg`, `/images/hero-plot.jpg`, 
 | ðŸŸ¢ P2 | 1 hr | **4.3** Migrate blog `<img>` â†’ `next/image` |
 | ðŸŸ¢ P2 | 10 min | **5.6** Convert blog dates to ISO 8601 |
 
-**Estimated total: 5â€“6 hours of focused work to reach 10/10.**
+**Estimated total: 5–6 hours of focused work to reach 10/10.**
 
 ---
 

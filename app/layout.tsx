@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: '%s | plotsgurgaon.in',
   },
   description:
-    'Verified residential plots in Gurgaon (â‚¹1Cr+) & Jhajjar (under â‚¹50L). Investors & homebuyers welcome. DTCP/RERA options. Call 09311122787 â€” plotsgurgaon.in',
+    'Verified residential plots in Gurgaon (₹1Cr+) & Jhajjar (under ₹50L). Investors & homebuyers welcome. DTCP/RERA options. Call 09311122787 "” plotsgurgaon.in',
   metadataBase: new URL('https://plotsgurgaon.in'),
   openGraph: {
     type: 'website',

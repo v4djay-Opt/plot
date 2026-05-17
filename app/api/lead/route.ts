@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
     await resend.emails.send({
       from: `PlotsGurgaon Leads <${fromEmail}>`,
       to: toEmail,
-      subject: `New Lead: ${name} â€” ${location || 'No location'}`,
+      subject: `New Lead: ${name} "” ${location || 'No location'}`,
       text: `New lead from plotsgurgaon.in
 
 Name: ${name}

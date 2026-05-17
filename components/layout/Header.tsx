@@ -72,13 +72,13 @@ export default function Header() {
         >
           <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-6 text-[11px] tracking-wide">
             <p className="opacity-90">
-              RERA Registered Â· Best Price Guaranteed Â· Free Site Visits
+              RERA Registered · Best Price Guaranteed · Free Site Visits
             </p>
             <div className="flex items-center gap-5">
               <a href="tel:+919311122787" className="inline-flex items-center gap-1.5 opacity-90 transition hover:opacity-100">
                 <Phone className="size-3" /> +91 93111 22787
               </a>
-              <span className="opacity-60">Monâ€“Sat Â· 9 AM â€“ 7 PM</span>
+              <span className="opacity-60">Mon–Sat · 9 AM – 7 PM</span>
             </div>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function Header() {
                   PlotsGurgaon<span className="text-secondary">.in</span>
                 </span>
                 <span className="mt-0.5 text-[9px] uppercase tracking-[0.22em] text-muted-foreground">
-                  Premium Land Â· Trusted Deals
+                  Premium Land · Trusted Deals
                 </span>
               </span>
             </Link>

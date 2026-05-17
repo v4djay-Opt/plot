@@ -6,7 +6,7 @@ import SchemaMarkup from '@/components/seo/SchemaMarkup';
 export const metadata: Metadata = {
   title: 'All Plot Locations | Haryana & UP Residential Plots',
   description:
-    'Find verified residential plots across Gurgaon, Jhajjar, Sohna, Ayodhya, Mathura, Lucknow, Gorakhpur. All price ranges. Call 09311122787 â€” plotsgurgaon.in',
+    'Find verified residential plots across Gurgaon, Jhajjar, Sohna, Ayodhya, Mathura, Lucknow, Gorakhpur. All price ranges. Call 09311122787 "” plotsgurgaon.in',
   alternates: {
     canonical: 'https://plotsgurgaon.in/locations',
   },
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: 'https://plotsgurgaon.in/locations',
     title: 'All Plot Locations | Haryana & UP Residential Plots | plotsgurgaon.in',
     description:
-      'Find verified residential plots across Gurgaon, Jhajjar, Sohna, Ayodhya, Mathura, Lucknow, Gorakhpur. All price ranges. Call 09311122787 â€” plotsgurgaon.in',
+      'Find verified residential plots across Gurgaon, Jhajjar, Sohna, Ayodhya, Mathura, Lucknow, Gorakhpur. All price ranges. Call 09311122787 "” plotsgurgaon.in',
     images: [
       {
         url: '/images/hero-plot.jpg',
@@ -30,13 +30,13 @@ const cities = [
   {
     name: 'Plots in Gurgaon',
     slug: 'gurgaon',
-    desc: 'Premium residential plots from â‚¹1 Crore. RERA verified across top sectors.',
+    desc: 'Premium residential plots from ₹1 Crore. RERA verified across top sectors.',
     region: 'Haryana',
   },
   {
     name: 'Plots in Jhajjar',
     slug: 'jhajjar',
-    desc: 'Affordable plots under â‚¹50 Lakh. DTCP & DDJAY approved near KMP Expressway.',
+    desc: 'Affordable plots under ₹50 Lakh. DTCP & DDJAY approved near KMP Expressway.',
     region: 'Haryana',
   },
   {
@@ -54,13 +54,13 @@ const cities = [
   {
     name: 'Plots in Mathura',
     slug: 'mathura',
-    desc: 'Spiritual city plots near Yamuna Expressway. Starting from â‚¹8 Lakh.',
+    desc: 'Spiritual city plots near Yamuna Expressway. Starting from ₹8 Lakh.',
     region: 'Uttar Pradesh',
   },
   {
     name: 'Plots in Lucknow',
     slug: 'lucknow',
-    desc: 'Capital city plots under â‚¹50 Lakh. LDA approved in prime sectors.',
+    desc: 'Capital city plots under ₹50 Lakh. LDA approved in prime sectors.',
     region: 'Uttar Pradesh',
   },
   {
@@ -103,7 +103,7 @@ export default function LocationsPage() {
             Choose Your Location
           </h1>
           <p className="mt-4 max-w-2xl text-base text-white/85 md:text-lg">
-            Verified residential plots across Haryana & Uttar Pradesh â€” from affordable
+            Verified residential plots across Haryana & Uttar Pradesh — from affordable
             investments to premium city plots.
           </p>
         </div>

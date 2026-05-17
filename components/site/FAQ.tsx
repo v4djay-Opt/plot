@@ -7,9 +7,9 @@ export type FAQItem = { q: string; a: string };
 
 export const DEFAULT_FAQS: FAQItem[] = [
   { q: 'Are all listed plots RERA registered?', a: 'Yes. Every plot we list carries a verified HRERA registration number along with clean title documents. We share the RERA ID before any site visit.' },
-  { q: 'Do you charge any brokerage or hidden fees?', a: 'No. All plots are direct from the owner or developer. You pay only the registered sale price plus government charges â€” there is zero brokerage.' },
+  { q: 'Do you charge any brokerage or hidden fees?', a: 'No. All plots are direct from the owner or developer. You pay only the registered sale price plus government charges "” there is zero brokerage.' },
   { q: 'Which areas do you cover?', a: 'We currently cover residential plots across Gurgaon, Sohna, Jhajjar, Dwarka Expressway, Sector 102, Sector 65 and adjoining micro-markets.' },
-  { q: 'How do I know the plot title is clear?', a: 'We share the full chain of documents â€” sale deed, mutation, RERA approval and encumbrance certificate â€” for your independent legal review before booking.' },
+  { q: 'How do I know the plot title is clear?', a: 'We share the full chain of documents "” sale deed, mutation, RERA approval and encumbrance certificate "” for your independent legal review before booking.' },
 ];
 
 export default function FAQ({

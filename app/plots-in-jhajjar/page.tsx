@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import CityLandingPage from '@/components/site/CityLandingPage';
 
 export const metadata: Metadata = {
-  title: 'Residential Plots in Jhajjar Under â‚¹50 Lakh',
+  title: 'Residential Plots in Jhajjar Under ₹50 Lakh',
   description:
     'Verified residential plots in Jhajjar under \u20B950 lakh. DDJAY & DTCP approved. Near KMP Expressway & Reliance MET City. Call 09311122787 for free site visit.',
   alternates: {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: 'https://plotsgurgaon.in/plots-in-jhajjar',
-    title: 'Residential Plots in Jhajjar Under â‚¹50 Lakh | plotsgurgaon.in',
+    title: 'Residential Plots in Jhajjar Under ₹50 Lakh | plotsgurgaon.in',
     description:
       'Verified residential plots in Jhajjar under \u20B950 lakh. DDJAY & DTCP approved. Near KMP Expressway & Reliance MET City. Call 09311122787 for free site visit.',
     images: [

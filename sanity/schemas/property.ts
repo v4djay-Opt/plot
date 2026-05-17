@@ -158,7 +158,7 @@ export default defineType({
       const { title, status, price, location } = selection;
       return {
         title,
-        subtitle: `${status === 'available' ? 'Available' : 'Sold'} â€¢ â‚¹${price?.toLocaleString('en-IN')} â€¢ ${location || ''}`,
+        subtitle: `${status === 'available' ? 'Available' : 'Sold'} "¢ ₹${price?.toLocaleString('en-IN')} "¢ ${location || ''}`,
         media: selection.media,
       };
     },

@@ -98,7 +98,7 @@ export default function LeadCapture() {
                 disabled={submitting}
                 className="h-12 w-full rounded-md bg-accent text-base font-semibold text-accent-foreground transition hover:bg-accent/90 disabled:opacity-60"
               >
-                {submitting ? 'Sendingâ€¦' : 'Request Callback'}
+                {submitting ? 'Sending"¦' : 'Request Callback'}
               </button>
             </div>
           )}
