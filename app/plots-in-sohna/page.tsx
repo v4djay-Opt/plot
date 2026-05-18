@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import CityLandingPage from '@/components/site/CityLandingPage';
+import { getPageBySlug } from '@/lib/sanity-pages';
 
 export const metadata: Metadata = {
   title: 'Residential Plots in Sohna | Near Gurgaon Under ₹80L',
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function SohnaPage() {
-  return <CityLandingPage citySlug="sohna" />;
+export default async function SohnaPage() {
+  const cmsData = await getPageBySlug('plots-in-sohna');
+  return <CityLandingPage citySlug="sohna" cmsData={cmsData} />;
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import CityLandingPage from '@/components/site/CityLandingPage';
+import { getPageBySlug } from '@/lib/sanity-pages';
 
 export const metadata: Metadata = {
   title: 'Residential Plots in Ayodhya | Buy Land Near Ram Mandir',
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AyodhyaPage() {
-  return <CityLandingPage citySlug="ayodhya" />;
+export default async function AyodhyaPage() {
+  const cmsData = await getPageBySlug('plots-in-ayodhya');
+  return <CityLandingPage citySlug="ayodhya" cmsData={cmsData} />;
 }

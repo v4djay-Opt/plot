@@ -7,6 +7,7 @@ import FAQ from '@/components/site/FAQ';
 import LeadCapture from '@/components/site/LeadCapture';
 import SchemaMarkup from '@/components/seo/SchemaMarkup';
 import { allPlots } from '@/lib/plots';
+import type { PageData } from '@/lib/sanity-pages';
 import {
   ArrowRight, ChevronRight, CheckCircle, Home, MapPinned, Phone, ShieldCheck, TrendingUp,
 } from 'lucide-react';
@@ -20,7 +21,7 @@ const ICONS = { shield: ShieldCheck, trend: TrendingUp, pin: MapPinned };
 
 type PriceRow = { sector: string; size: string; priceRange: string; approval: string };
 
-export const CITY_CONFIGS: Record<CitySlug, {
+type CityConfig = {
   name: string;
   h1Title: string;
   matches: (loc: string) => boolean;
@@ -35,7 +36,9 @@ export const CITY_CONFIGS: Record<CitySlug, {
   investorPoints: string[];
   homebuyerPoints: string[];
   siteVisitSteps: string[];
-}> = {
+};
+
+export const CITY_CONFIGS: Record<CitySlug, CityConfig> = {
   gurgaon: {
     name: 'Gurgaon',
     h1Title: 'Residential Plots in Gurgaon "” Premium Verified Options From ₹1 Crore',
@@ -381,8 +384,33 @@ export const CITY_CONFIGS: Record<CitySlug, {
   },
 };
 
-export default function CityLandingPage({ citySlug }: { citySlug: CitySlug }) {
-  const city = CITY_CONFIGS[citySlug];
+export default function CityLandingPage({
+  citySlug,
+  cmsData,
+}: {
+  citySlug: CitySlug;
+  cmsData?: PageData;
+}) {
+  const hardcoded = CITY_CONFIGS[citySlug];
+
+  // Merge CMS data over hardcoded config
+  const city: CityConfig = {
+    name: cmsData?.cityName || hardcoded.name,
+    h1Title: cmsData?.h1Title || hardcoded.h1Title,
+    matches: hardcoded.matches,
+    sectors: cmsData?.sectors?.length ? cmsData.sectors : hardcoded.sectors,
+    intro: cmsData?.intro || hardcoded.intro,
+    body: cmsData?.body || hardcoded.body,
+    bullets: cmsData?.bullets?.length ? cmsData.bullets : hardcoded.bullets,
+    nearby: cmsData?.nearby?.length ? cmsData.nearby : hardcoded.nearby,
+    faqs: cmsData?.faqs?.length ? cmsData.faqs : hardcoded.faqs,
+    seoPriceRange: cmsData?.seoPriceRange ?? hardcoded.seoPriceRange,
+    priceTable: cmsData?.priceTable?.length ? cmsData.priceTable : hardcoded.priceTable,
+    investorPoints: cmsData?.investorPoints?.length ? cmsData.investorPoints : hardcoded.investorPoints,
+    homebuyerPoints: cmsData?.homebuyerPoints?.length ? cmsData.homebuyerPoints : hardcoded.homebuyerPoints,
+    siteVisitSteps: cmsData?.siteVisitSteps?.length ? cmsData.siteVisitSteps : hardcoded.siteVisitSteps,
+  };
+
   const [activeSector, setActiveSector] = useState<string | null>(null);
 
   const cityPlots = useMemo(() => allPlots.filter((p) => city.matches(p.location)), [city]);
@@ -392,7 +420,7 @@ export default function CityLandingPage({ citySlug }: { citySlug: CitySlug }) {
     return cityPlots.filter((p) => p.location.toLowerCase().includes(activeSector.toLowerCase()));
   }, [activeSector, cityPlots]);
 
-  const region = ['gurgaon', 'sohna', 'jhajjar'].includes(citySlug) ? 'Haryana' : 'Uttar Pradesh';
+  const region = cmsData?.region || (['gurgaon', 'sohna', 'jhajjar'].includes(citySlug) ? 'Haryana' : 'Uttar Pradesh');
   const pageUrl = `https://plotsgurgaon.in/plots-in-${citySlug}`;
 
   const schemas = [

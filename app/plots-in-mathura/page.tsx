@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import CityLandingPage from '@/components/site/CityLandingPage';
+import { getPageBySlug } from '@/lib/sanity-pages';
 
 export const metadata: Metadata = {
   title: 'Residential Plots in Mathura | Land Near Vrindavan',
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function MathuraPage() {
-  return <CityLandingPage citySlug="mathura" />;
+export default async function MathuraPage() {
+  const cmsData = await getPageBySlug('plots-in-mathura');
+  return <CityLandingPage citySlug="mathura" cmsData={cmsData} />;
 }

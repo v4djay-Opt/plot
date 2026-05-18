@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import CityLandingPage from '@/components/site/CityLandingPage';
+import { getPageBySlug } from '@/lib/sanity-pages';
 
 export const metadata: Metadata = {
   title: 'Residential Plots in Lucknow Under ₹50 Lakh',
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function LucknowPage() {
-  return <CityLandingPage citySlug="lucknow" />;
+export default async function LucknowPage() {
+  const cmsData = await getPageBySlug('plots-in-lucknow');
+  return <CityLandingPage citySlug="lucknow" cmsData={cmsData} />;
 }

@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import CityLandingPage from '@/components/site/CityLandingPage';
+import { getPageBySlug } from '@/lib/sanity-pages';
 
 export const metadata: Metadata = {
   title: 'Residential Plots in Jhajjar Under ₹50 Lakh',
   description:
-    'Verified residential plots in Jhajjar under \u20B950 lakh. DDJAY & DTCP approved. Near KMP Expressway & Reliance MET City. Call 09311122787 for free site visit.',
+    'Verified residential plots in Jhajjar under ₹50 lakh. DDJAY & DTCP approved. Near KMP Expressway & Reliance MET City. Call 09311122787 for free site visit.',
   alternates: {
     canonical: 'https://plotsgurgaon.in/plots-in-jhajjar',
   },
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     url: 'https://plotsgurgaon.in/plots-in-jhajjar',
     title: 'Residential Plots in Jhajjar Under ₹50 Lakh | plotsgurgaon.in',
     description:
-      'Verified residential plots in Jhajjar under \u20B950 lakh. DDJAY & DTCP approved. Near KMP Expressway & Reliance MET City. Call 09311122787 for free site visit.',
+      'Verified residential plots in Jhajjar under ₹50 lakh. DDJAY & DTCP approved. Near KMP Expressway & Reliance MET City. Call 09311122787 for free site visit.',
     images: [
       {
         url: '/images/loc-jhajjar.jpg',
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function JhajjarPage() {
-  return <CityLandingPage citySlug="jhajjar" />;
+export default async function JhajjarPage() {
+  const cmsData = await getPageBySlug('plots-in-jhajjar');
+  return <CityLandingPage citySlug="jhajjar" cmsData={cmsData} />;
 }
