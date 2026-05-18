@@ -18,8 +18,10 @@ Deploy the studio to Sanity's CDN so you can access it from any browser, anywher
 npx sanity deploy
 ```
 
-It will ask for a hostname. Just press Enter to use the default:
-**`https://76tdcxev.sanity.studio/`**
+It will ask for a hostname. Enter something simple like `plotsgurgaon-cms`.
+
+**Your studio is already deployed at:**
+**`https://plotsgurgaon-cms.sanity.studio/`**
 
 Bookmark that URL. Open it, log in with your Sanity account, and edit content. This is your permanent live CMS URL.
 
