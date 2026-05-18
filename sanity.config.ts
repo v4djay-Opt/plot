@@ -4,11 +4,14 @@ import { visionTool } from '@sanity/vision';
 import { seoMetaFields } from 'sanity-plugin-seo';
 import { schemaTypes } from './sanity/schemas';
 
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '76tdcxev';
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
+
 export default defineConfig({
   name: 'plotsgurgaon-studio',
   title: 'PlotsGurgaon Studio',
-  projectId: '76tdcxev',
-  dataset: 'production',
+  projectId,
+  dataset,
   plugins: [
     structureTool({
       structure: (S) =>
@@ -18,8 +21,9 @@ export default defineConfig({
             S.listItem()
               .title('Site Settings')
               .child(S.document().schemaType('siteSettings').documentId('siteSettings'))
-              .icon(() => 'âš™ï¸'),
+              .icon(() => 'S'),
             S.divider(),
+            S.documentTypeListItem('page').title('Landing Pages'),
             S.documentTypeListItem('property').title('Properties'),
             S.documentTypeListItem('blogPost').title('Blog Posts'),
             S.documentTypeListItem('city').title('Cities'),
