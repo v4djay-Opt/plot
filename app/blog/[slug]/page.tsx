@@ -1,13 +1,21 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { PortableText } from '@portabletext/react';
 import { BLOG_POSTS, formatDate } from '@/components/site/blogData';
+import { getSanityBlogBySlug, getAllSanityBlogSlugs } from '@/lib/sanity-blogs';
 
 export async function generateStaticParams() {
-  return BLOG_POSTS.map((post) => ({ slug: post.slug }));
+  const hardcoded = BLOG_POSTS.map((post) => ({ slug: post.slug }));
+  const sanitySlugs = await getAllSanityBlogSlugs();
+  const sanityParams = sanitySlugs
+    .filter((s) => !BLOG_POSTS.some((p) => p.slug === s))
+    .map((s) => ({ slug: s }));
+  return [...hardcoded, ...sanityParams];
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = BLOG_POSTS.find((p) => p.slug === params.slug);
+  const sanityResult = await getSanityBlogBySlug(params.slug);
+  const post = sanityResult?.post ?? BLOG_POSTS.find((p) => p.slug === params.slug);
   if (!post) return {};
 
   return {
@@ -23,9 +31,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = BLOG_POSTS.find((p) => p.slug === params.slug);
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+  const sanityResult = await getSanityBlogBySlug(params.slug);
+  const post = sanityResult?.post ?? BLOG_POSTS.find((p) => p.slug === params.slug);
   if (!post) notFound();
+
+  const hardcodedPost = BLOG_POSTS.find((p) => p.slug === params.slug);
+  const portableContent = sanityResult?.portableContent;
 
   return (
     <div className="min-h-screen bg-stone-50">
@@ -53,12 +65,16 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         </div>
       </div>
 
-      <article className="mx-auto max-w-3xl px-6 py-12">
-        {post.content.map((paragraph, i) => (
-          <p key={i} className="mb-6 text-lg leading-relaxed text-stone-700">
-            {paragraph}
-          </p>
-        ))}
+      <article className="mx-auto max-w-3xl px-6 py-12 prose prose-stone prose-lg">
+        {portableContent && portableContent.length > 0 ? (
+          <PortableText value={portableContent as Parameters<typeof PortableText>[0]['value']} />
+        ) : hardcodedPost ? (
+          hardcodedPost.content.map((paragraph, i) => (
+            <p key={i} className="mb-6 text-lg leading-relaxed text-stone-700">
+              {paragraph}
+            </p>
+          ))
+        ) : null}
       </article>
     </div>
   );

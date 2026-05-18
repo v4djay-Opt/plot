@@ -49,10 +49,11 @@ function GalleryImage({ index }: { index: number }) {
   );
 }
 
-export default function PlotDetailClient({ plot, related }: { plot: Plot; related: Plot[] }) {
+export default function PlotDetailClient({ plot, related = [] }: { plot: Plot; related?: Plot[] }) {
   const [copied, setCopied] = useState(false);
 
-  const gradient = PALETTES[parseInt(plot.id) % PALETTES.length];
+  const idHash = plot.id.split('').reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
+  const gradient = PALETTES[idHash % PALETTES.length];
 
   return (
     <div className="min-h-screen bg-stone-50">

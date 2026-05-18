@@ -3,6 +3,7 @@ import { ArrowRight, Clock } from 'lucide-react';
 import FAQ from '@/components/site/FAQ';
 import { BLOG_POSTS, formatDate } from '@/components/site/blogData';
 import SchemaMarkup from '@/components/seo/SchemaMarkup';
+import { getAllSanityBlogPosts } from '@/lib/sanity-blogs';
 
 export const metadata = {
   title: 'Blog "” Plot Buying Tips, Market Insights & RERA Guides',
@@ -25,26 +26,30 @@ export const metadata = {
   },
 };
 
-const blogSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Blog',
-  name: 'PlotsGurgaon Blog',
-  url: 'https://plotsgurgaon.in/blog',
-  description: 'Practical guides on buying residential plots in Gurgaon, Sohna and Jhajjar.',
-  blogPost: BLOG_POSTS.map((post, i) => ({
-    '@type': 'BlogPosting',
-    position: i + 1,
-    headline: post.title,
-    description: post.excerpt,
-    url: `https://plotsgurgaon.in/blog/${post.slug}`,
-    author: { '@type': 'Person', name: post.author },
-    datePublished: post.date,
-    image: post.cover,
-  })),
-};
+export default async function BlogPage() {
+  const sanityPosts = await getAllSanityBlogPosts();
+  const sanitySlugSet = new Set(sanityPosts.map((p) => p.slug));
+  const hardcodedOnly = BLOG_POSTS.filter((p) => !sanitySlugSet.has(p.slug));
+  const allPosts = [...sanityPosts, ...hardcodedOnly];
+  const [featured, ...rest] = allPosts;
 
-export default function BlogPage() {
-  const [featured, ...rest] = BLOG_POSTS;
+  const blogSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: 'PlotsGurgaon Blog',
+    url: 'https://plotsgurgaon.in/blog',
+    description: 'Practical guides on buying residential plots in Gurgaon, Sohna and Jhajjar.',
+    blogPost: allPosts.map((post, i) => ({
+      '@type': 'BlogPosting',
+      position: i + 1,
+      headline: post.title,
+      description: post.excerpt,
+      url: `https://plotsgurgaon.in/blog/${post.slug}`,
+      author: { '@type': 'Person', name: post.author },
+      datePublished: post.date,
+      image: post.cover,
+    })),
+  };
 
   return (
     <>
