@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { ChevronDown, Menu, MessageCircle, Phone, X, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import type { CityLink } from '@/lib/sanity-cities';
 
 const mainLinks = [
   { label: 'Home', href: '/' },
@@ -12,17 +13,17 @@ const mainLinks = [
   { label: 'Contact', href: '/contact' },
 ];
 
-const cityLinks = [
-  { label: 'Gurgaon', href: '/plots-in-gurgaon' },
-  { label: 'Sohna', href: '/plots-in-sohna' },
-  { label: 'Jhajjar', href: '/plots-in-jhajjar' },
-  { label: 'Mathura', href: '/plots-in-mathura' },
-  { label: 'Gorakhpur', href: '/plots-in-gorakhpur' },
-  { label: 'Ayodhya', href: '/plots-in-ayodhya' },
-  { label: 'Lucknow', href: '/plots-in-lucknow' },
+const defaultCityLinks: CityLink[] = [
+  { label: 'Gurgaon', href: '/plots-in-gurgaon', slug: 'gurgaon' },
+  { label: 'Sohna', href: '/plots-in-sohna', slug: 'sohna' },
+  { label: 'Jhajjar', href: '/plots-in-jhajjar', slug: 'jhajjar' },
+  { label: 'Mathura', href: '/plots-in-mathura', slug: 'mathura' },
+  { label: 'Gorakhpur', href: '/plots-in-gorakhpur', slug: 'gorakhpur' },
+  { label: 'Ayodhya', href: '/plots-in-ayodhya', slug: 'ayodhya' },
+  { label: 'Lucknow', href: '/plots-in-lucknow', slug: 'lucknow' },
 ];
 
-export default function Header() {
+export default function Header({ cityLinks = defaultCityLinks }: { cityLinks?: CityLink[] }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);

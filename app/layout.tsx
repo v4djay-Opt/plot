@@ -6,6 +6,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/layout/WhatsAppButton';
 import MobileCallBar from '@/components/layout/MobileCallBar';
+import { fetchCities } from '@/lib/sanity-cities';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -42,19 +43,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const cities = await fetchCities();
 
   return (
     <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
       <body className="font-sans antialiased">
-        <Header />
+        <Header cityLinks={cities} />
         <main>{children}</main>
-        <Footer />
+        <Footer cityLinks={cities.map((c) => ({ ...c, label: `Plots in ${c.label}` }))} />
         <WhatsAppButton />
         <MobileCallBar />
         {gaId && (

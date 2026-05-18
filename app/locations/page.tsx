@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, MapPin } from 'lucide-react';
 import SchemaMarkup from '@/components/seo/SchemaMarkup';
+import { fetchCities } from '@/lib/sanity-cities';
 
 export const metadata: Metadata = {
   title: 'All Plot Locations | Haryana & UP Residential Plots',
   description:
-    'Find verified residential plots across Gurgaon, Jhajjar, Sohna, Ayodhya, Mathura, Lucknow, Gorakhpur. All price ranges. Call 09311122787 "” plotsgurgaon.in',
+    'Find verified residential plots across Gurgaon, Jhajjar, Sohna, Ayodhya, Mathura, Lucknow, Gorakhpur. All price ranges. Call 09311122787 — plotsgurgaon.in',
   alternates: {
     canonical: 'https://plotsgurgaon.in/locations',
   },
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
     url: 'https://plotsgurgaon.in/locations',
     title: 'All Plot Locations | Haryana & UP Residential Plots | plotsgurgaon.in',
     description:
-      'Find verified residential plots across Gurgaon, Jhajjar, Sohna, Ayodhya, Mathura, Lucknow, Gorakhpur. All price ranges. Call 09311122787 "” plotsgurgaon.in',
+      'Find verified residential plots across Gurgaon, Jhajjar, Sohna, Ayodhya, Mathura, Lucknow, Gorakhpur. All price ranges. Call 09311122787 — plotsgurgaon.in',
     images: [
       {
         url: '/images/hero-plot.jpg',
@@ -26,64 +27,21 @@ export const metadata: Metadata = {
   },
 };
 
-const cities = [
-  {
-    name: 'Plots in Gurgaon',
-    slug: 'gurgaon',
-    desc: 'Premium residential plots from ₹1 Crore. RERA verified across top sectors.',
-    region: 'Haryana',
-  },
-  {
-    name: 'Plots in Jhajjar',
-    slug: 'jhajjar',
-    desc: 'Affordable plots under ₹50 Lakh. DTCP & DDJAY approved near KMP Expressway.',
-    region: 'Haryana',
-  },
-  {
-    name: 'Plots in Sohna',
-    slug: 'sohna',
-    desc: 'Growth corridor 20 min from Gurgaon. Entry-level pricing with strong appreciation.',
-    region: 'Haryana',
-  },
-  {
-    name: 'Plots in Ayodhya',
-    slug: 'ayodhya',
-    desc: 'High-growth investment zone near Ram Mandir & Ring Road. UP RERA approved.',
-    region: 'Uttar Pradesh',
-  },
-  {
-    name: 'Plots in Mathura',
-    slug: 'mathura',
-    desc: 'Spiritual city plots near Yamuna Expressway. Starting from ₹8 Lakh.',
-    region: 'Uttar Pradesh',
-  },
-  {
-    name: 'Plots in Lucknow',
-    slug: 'lucknow',
-    desc: 'Capital city plots under ₹50 Lakh. LDA approved in prime sectors.',
-    region: 'Uttar Pradesh',
-  },
-  {
-    name: 'Plots in Gorakhpur',
-    slug: 'gorakhpur',
-    desc: 'Fast-developing plots near GIDA sectors. Industrial corridor advantage.',
-    region: 'Uttar Pradesh',
-  },
-];
+export default async function LocationsPage() {
+  const cities = await fetchCities();
 
-const itemListSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  name: 'Plot Locations',
-  itemListElement: cities.map((c, i) => ({
-    '@type': 'ListItem',
-    position: i + 1,
-    name: c.name,
-    url: `https://plotsgurgaon.in/plots-in-${c.slug}`,
-  })),
-};
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Plot Locations',
+    itemListElement: cities.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: `Plots in ${c.label}`,
+      url: `https://plotsgurgaon.in${c.href}`,
+    })),
+  };
 
-export default function LocationsPage() {
   return (
     <>
       <SchemaMarkup schema={itemListSchema} />
@@ -114,19 +72,19 @@ export default function LocationsPage() {
           {cities.map((city) => (
             <Link
               key={city.slug}
-              href={`/plots-in-${city.slug}`}
+              href={city.href}
               className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-primary hover:shadow-lg hover:shadow-primary/10"
             >
               <div className="flex items-center justify-between">
                 <h3 className="font-serif text-xl font-semibold text-foreground">
-                  {city.name}
+                  Plots in {city.label}
                 </h3>
                 <ArrowRight className="size-5 text-primary transition-transform group-hover:translate-x-1" />
               </div>
-              <p className="mt-2 text-sm text-muted-foreground">{city.desc}</p>
+              <p className="mt-2 text-sm text-muted-foreground">{city.desc || ''}</p>
               <div className="mt-auto flex items-center gap-1.5 pt-4 text-xs text-muted-foreground">
                 <MapPin className="size-3.5 text-secondary" />
-                {city.region}
+                {city.region || 'India'}
               </div>
             </Link>
           ))}

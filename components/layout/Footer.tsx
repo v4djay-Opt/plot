@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Phone, Mail, MapPin, MessageCircle, ShieldCheck, ArrowRight } from 'lucide-react';
+import type { CityLink } from '@/lib/sanity-cities';
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -9,17 +10,17 @@ const navLinks = [
   { label: 'Contact', href: '/contact' },
 ];
 
-const cityLinks = [
-  { label: 'Plots in Gurgaon', href: '/plots-in-gurgaon' },
-  { label: 'Plots in Sohna', href: '/plots-in-sohna' },
-  { label: 'Plots in Jhajjar', href: '/plots-in-jhajjar' },
-  { label: 'Plots in Mathura', href: '/plots-in-mathura' },
-  { label: 'Plots in Gorakhpur', href: '/plots-in-gorakhpur' },
-  { label: 'Plots in Ayodhya', href: '/plots-in-ayodhya' },
-  { label: 'Plots in Lucknow', href: '/plots-in-lucknow' },
+const defaultCityLinks: CityLink[] = [
+  { label: 'Plots in Gurgaon', href: '/plots-in-gurgaon', slug: 'gurgaon' },
+  { label: 'Plots in Sohna', href: '/plots-in-sohna', slug: 'sohna' },
+  { label: 'Plots in Jhajjar', href: '/plots-in-jhajjar', slug: 'jhajjar' },
+  { label: 'Plots in Mathura', href: '/plots-in-mathura', slug: 'mathura' },
+  { label: 'Plots in Gorakhpur', href: '/plots-in-gorakhpur', slug: 'gorakhpur' },
+  { label: 'Plots in Ayodhya', href: '/plots-in-ayodhya', slug: 'ayodhya' },
+  { label: 'Plots in Lucknow', href: '/plots-in-lucknow', slug: 'lucknow' },
 ];
 
-export default function Footer() {
+export default function Footer({ cityLinks = defaultCityLinks }: { cityLinks?: CityLink[] }) {
   return (
     <footer className="bg-primary text-primary-foreground">
       {/* CTA strip */}

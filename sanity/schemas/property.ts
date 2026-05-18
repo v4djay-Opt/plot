@@ -149,18 +149,6 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      status: 'status',
-      price: 'price',
-      location: 'location.name',
-      media: 'images.0',
-    },
-    prepare(selection) {
-      const { title, status, price, location } = selection;
-      return {
-        title,
-        subtitle: `${status === 'available' ? 'Available' : 'Sold'} "¢ ₹${price?.toLocaleString('en-IN')} "¢ ${location || ''}`,
-        media: selection.media,
-      };
     },
   },
 });
