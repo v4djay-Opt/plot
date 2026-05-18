@@ -6,13 +6,54 @@ import PropertyCard from '@/components/property/PropertyCard';
 import FAQ from '@/components/site/FAQ';
 import LeadCapture from '@/components/site/LeadCapture';
 import SchemaMarkup from '@/components/seo/SchemaMarkup';
-import { allPlots } from '@/lib/plots';
+import { allPlots, type Plot } from '@/lib/plots';
 import type { PageData } from '@/lib/sanity-pages';
 import {
   ArrowRight, ChevronRight, CheckCircle, Home, MapPinned, Phone, ShieldCheck, TrendingUp,
 } from 'lucide-react';
 
 export type CitySlug = 'gurgaon' | 'sohna' | 'jhajjar' | 'mathura' | 'gorakhpur' | 'ayodhya' | 'lucknow';
+
+function getGenericDefaults(cityName: string): CityConfig {
+  return {
+    name: cityName,
+    h1Title: `Residential Plots in ${cityName}`,
+    matches: () => false,
+    sectors: [],
+    intro: `Find verified residential plots in ${cityName}. RERA registered. Free site visit available.`,
+    body: `${cityName} is emerging as a strong destination for residential plot investment. All listed plots come with verified titles, RERA registration, and direct developer pricing — with free site visits arranged within 24–48 hours.`,
+    bullets: [
+      { title: 'RERA Registered', desc: 'Every listed plot has a verified RERA number and clean title.', icon: 'shield' },
+      { title: 'Best Price Guaranteed', desc: 'Direct from developer pricing with no hidden charges.', icon: 'trend' },
+      { title: 'Prime Connectivity', desc: `Well-connected plots in prime micro-locations of ${cityName}.`, icon: 'pin' },
+    ],
+    nearby: [],
+    faqs: [
+      { q: `Are plots in ${cityName} RERA registered?`, a: `Yes, all plots listed on plotsgurgaon.in for ${cityName} are RERA registered with clear titles. We share RERA documents before any booking.` },
+      { q: `How can I book a free site visit in ${cityName}?`, a: 'Call 09311122787 or fill the contact form below. Our team arranges free site visits within 24–48 hours.' },
+      { q: `What is the price range of plots in ${cityName}?`, a: `Plot prices in ${cityName} vary by size, location and approval type. Call 09311122787 for the latest rates.` },
+    ],
+    seoPriceRange: { low: 500000, high: 10000000 },
+    priceTable: [],
+    investorPoints: [
+      `Strong capital appreciation potential in ${cityName}`,
+      'Low entry price with high long-term ROI',
+      'Clean title and verified legal documentation',
+      'Early-mover advantage in emerging micro-markets',
+    ],
+    homebuyerPoints: [
+      `Build your dream home in ${cityName}`,
+      'Various plot sizes to suit all budgets',
+      'Free layout and construction guidance',
+      'Loan assistance and registry support',
+    ],
+    siteVisitSteps: [
+      'Call 09311122787 or fill the contact form below to express your interest.',
+      'We confirm the site visit date and share the exact location and travel details.',
+      'Visit the plot with our expert consultant and get all documents verified on-site.',
+    ],
+  };
+}
 
 type Nearby = { label: string; href: string; detail: string };
 type Bullet = { title: string; desc: string; icon: 'shield' | 'trend' | 'pin' };
@@ -387,11 +428,13 @@ export const CITY_CONFIGS: Record<CitySlug, CityConfig> = {
 export default function CityLandingPage({
   citySlug,
   cmsData,
+  extraPlots,
 }: {
-  citySlug: CitySlug;
+  citySlug: string;
   cmsData?: PageData;
+  extraPlots?: Plot[];
 }) {
-  const hardcoded = CITY_CONFIGS[citySlug];
+  const hardcoded = (CITY_CONFIGS as Record<string, CityConfig>)[citySlug] || getGenericDefaults(cmsData?.cityName || citySlug);
 
   // Merge CMS data over hardcoded config
   const city: CityConfig = {
@@ -415,10 +458,15 @@ export default function CityLandingPage({
 
   const cityPlots = useMemo(() => allPlots.filter((p) => city.matches(p.location)), [city]);
 
+  const allCityPlots = useMemo(() => [
+    ...cityPlots,
+    ...(extraPlots || []),
+  ], [cityPlots, extraPlots]);
+
   const visiblePlots = useMemo(() => {
-    if (!activeSector) return cityPlots;
-    return cityPlots.filter((p) => p.location.toLowerCase().includes(activeSector.toLowerCase()));
-  }, [activeSector, cityPlots]);
+    if (!activeSector) return allCityPlots;
+    return allCityPlots.filter((p) => p.location.toLowerCase().includes(activeSector.toLowerCase()));
+  }, [activeSector, allCityPlots]);
 
   const region = cmsData?.region || (['gurgaon', 'sohna', 'jhajjar'].includes(citySlug) ? 'Haryana' : 'Uttar Pradesh');
   const pageUrl = `https://plotsgurgaon.in/plots-in-${citySlug}`;
@@ -441,7 +489,7 @@ export default function CityLandingPage({
         priceCurrency: 'INR',
         lowPrice: city.seoPriceRange.low.toString(),
         highPrice: city.seoPriceRange.high.toString(),
-        offerCount: `${cityPlots.length}+`,
+        offerCount: `${allCityPlots.length}+`,
       },
     },
     {
